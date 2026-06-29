@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./style.module.scss";
 
 function FirstView(){
     return (
@@ -6,6 +6,7 @@ function FirstView(){
          <img src="/paeria_top.jpeg" alt="Paeria Top"/> 
          <div className={styles['color-overlay']}></div>
          <div className={styles['info-holder']}>
+            <h2>スペインの天国</h2>
             <h1>
                 The<br/>
                 Spanish<br/>

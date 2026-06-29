@@ -1,0 +1,14 @@
+.container {
+
+}
+
+button{
+    background-color: var(--bg-buttonCTA);
+    color:var(--tx-primary);
+    
+
+    .word{
+        font-family: var(--font-button);
+        font-size: rem(32);
+    }
+}

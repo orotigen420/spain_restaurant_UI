@@ -25,16 +25,24 @@ img {
 .info-holder {
   position: absolute;
   z-index: 2;
-  top: 140px;
-  left: 170px;
-  width: 550px;
+  top: rem(140);
+  left: rem(170);
+  width: rem(550);
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 }
 
-h2 {}
+h2 {
+  font-size:rem(32);
+  font-family: var(--font-japanese);
+  color: rgba(#FFF,0.4);
+  font-weight: 100;
+}
 
 h1 {
-  
+  font-size: rem(150);
+  font-family: var(--font-title);
+  color: #FFF;
+  font-weight: normal;
 }

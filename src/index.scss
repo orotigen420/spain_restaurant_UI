@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Miriam+Libre:wght@400..700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+ 
+ :root {
+  /*色/
+  /*background*/
+   --bg-root: #0f0f0e;
+   --bg-main:linear-gradient(#ECF2EF 80%,#E6E6E0);
+   --bg-card:#E6E6E0;
+   --bg-sideBar:#ECF2EF;
+   --bg-buttonCTA:linear-gradient(#FF8B07 0%,#F9B339);
+   --bg-buttonSecond:linear-gradient(#FFFFFF14 0%,#E8E5DE14);
+   --bg-buttonThird:linear-gradient(#F9F9F93C 0%,#E8E5DE3C);
+
+   /*border*/
+   --br-buttonCTA:linear-gradient(#FAB137 0%, #FF8E0A);
+   --br-whiteEdge:#D1D2CB;
+   --br-whiteWeakEdge:#E4E4E4;
+
+   /*text*/
+   --tx-primary:linear-gradient(#3a3d2f 24%, #3a3d2fcc);
+   --tx-card:#313329;
+
+
+   /*フォント*/
+    --font-title: "Inconsolata", sans-serif;
+    --font-japanese: "Zen Kaku Gothic New", sans-serif;
+    --font-comment: "Miriam Libre", sans-serif;
+    --font-main: "Mona Sans", sans-serif;
+    --font-button: "Albert Sans", sans-serif;
+    --font-sub:"Intel One Mono", monospace;
+ }
+
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+ html,
+ body {
+   width: 100%;
+   height: 100%;
+   background: var(--bg-root);
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: calc((16 / 1024) * 100dvh);
+   /*figmaでの設計に合わせるため(高さ1024pxで16px)*/
+ }
+
+ #root {
+   height: 100dvh;
+   aspect-ratio: 1516 / 1024;
+   max-width: 100vw;
+   max-height: 100dvh;
+   width: auto;
+ }
