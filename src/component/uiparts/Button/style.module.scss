@@ -1,0 +1,47 @@
+.container {}
+
+button {
+    //ボタン共通の定義
+    padding: rem(28) rem(25) rem(28) rem(35);
+    &[data-icon-position="left"] {
+        padding: rem(26) rem(35) rem(26) rem(25);
+    }
+    gap: rem(1);
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    border-radius: rem(50);
+
+    //それぞれのバリアントに合わせたスタイリング
+    &.cta { 
+        /*borderにグラデーションをつけたいので*/
+        border: rem(4) solid transparent;
+        background:
+            var(--bg-buttonCTA) padding-box,
+            var(--br-buttonCTA) border-box;
+        box-shadow: 0px 3px 4px #FFFFFF44 inset;
+    }
+
+    &.secondary{
+        border: rem(3) solid var(--br-whiteWeakEdge);
+        background: var(--bg-buttonSecond);
+    }
+
+    & .word {
+        font-family: var(--font-button);
+        font-size: rem(32);
+        font-weight: 600;
+        color: var(--tx-primary);
+        line-height: 1;
+    }
+
+    .icon {
+        width: rem(40);
+        height: rem(40);
+
+        path {
+            stroke: var(--tx-primary);
+            stroke-width: rem(2.5);
+        }
+    }
+}

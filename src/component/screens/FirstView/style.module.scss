@@ -9,6 +9,7 @@ img {
   height: 100%;
   transform: scale(-1, 1);
   object-fit: cover;
+  filter: blur(2px);
 }
 
 .color-overlay {
@@ -18,7 +19,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(195deg, #bdae0657, #1c1b17 76%);
+  background-image: linear-gradient(195deg, #bdae06A0, #1c1b17 76%);
   mix-blend-mode: hard-light;
 }
 
@@ -31,18 +32,23 @@ img {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-}
 
-h2 {
-  font-size:rem(32);
-  font-family: var(--font-japanese);
-  color: rgba(#FFF,0.4);
-  font-weight: 100;
-}
+  h2 {
+    font-size: rem(32);
+    font-family: var(--font-japanese);
+    color: rgba(#FFF, 0.5);
+    font-weight: 100;
+  }
 
-h1 {
-  font-size: rem(150);
-  font-family: var(--font-title);
-  color: #FFF;
-  font-weight: normal;
+  h1 {
+    font-size: rem(150);
+    font-family: var(--font-title);
+    color: rgba(#FFF, 0.9);
+    font-weight: normal;
+  }
+
+  .ctaButton {
+    position: relative;
+    top: rem(80);
+  }
 }
