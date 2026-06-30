@@ -2,53 +2,55 @@
   position: relative;
   width: 100%;
   height: 100%;
-}
+  background-color: #1c1b17;
+  /* Fallback color matching the image tone */
 
-img {
-  width: 100%;
-  height: 100%;
-  transform: scale(-1, 1);
-  object-fit: cover;
-  filter: blur(2px);
-}
-
-.color-overlay {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(195deg, #bdae06A0, #1c1b17 76%);
-  mix-blend-mode: hard-light;
-}
-
-.info-holder {
-  position: absolute;
-  z-index: 2;
-  top: rem(140);
-  left: rem(170);
-  width: rem(550);
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-
-  h2 {
-    font-size: rem(32);
-    font-family: var(--font-japanese);
-    color: rgba(#FFF, 0.5);
-    font-weight: 100;
+  img {
+    width: 100%;
+    height: 100%;
+    transform: scale(-1, 1);
+    object-fit: cover;
+    filter: blur(2px);
   }
 
-  h1 {
-    font-size: rem(150);
-    font-family: var(--font-title);
-    color: rgba(#FFF, 0.9);
-    font-weight: normal;
+  .color-overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(195deg, #bdae06A0, #1c1b17 76%);
+    mix-blend-mode: hard-light;
   }
 
-  .ctaButton {
-    position: relative;
-    top: rem(80);
+  .info-holder {
+    position: absolute;
+    z-index: 2;
+    top: rem(140);
+    left: rem(170);
+    width: rem(550);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    h2 {
+      font-size: rem(32);
+      font-family: var(--font-japanese);
+      color: rgba(#FFF, 0.5);
+      font-weight: 100;
+    }
+
+    h1 {
+      font-size: rem(150);
+      font-family: var(--font-title);
+      color: rgba(#FFF, 0.9);
+      font-weight: normal;
+    }
+
+    .ctaButton {
+      position: relative;
+      top: rem(80);
+    }
   }
 }

@@ -1,0 +1,60 @@
+@import "../../../styles/mixins";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: rem(3) solid var(--br-whiteEdge);
+  border-radius: rem(16);
+  padding: rem(40) rem(18);
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 rem(6) rem(16) rgba(0, 0, 0, 0.10),
+    inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.5);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  height: rem(220);
+  width: 100%;
+
+
+  &:active {
+    transform-origin: bottom;
+    transform: scale(0.97);
+    transform: translateY(rem(3));
+    box-shadow: 0 rem(3) rem(8) rgba(0, 0, 0, 0.05),
+      inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.2);
+  }
+
+  .label {
+    font-family: var(--font-sub);
+    font-size: rem(20);
+    font-weight: 500;
+    color: rgba(var(--tx-primary-rgb), 0.6);
+    margin-bottom: rem(12);
+  }
+
+  .glassesContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: rem(30);
+    height: rem(100);
+  }
+
+  .glass {
+    //svgの縦横比8:3を維持したまま拡大縮小させる
+    width: rem(27);
+    height: rem(72);
+    opacity: 0.55;
+  }
+
+  .dots {
+    font-size: rem(28);
+    font-weight: 700;
+    color: rgba(var(--tx-primary-rgb), 0.4);
+    line-height: 1;
+    margin-left: rem(2);
+    margin-bottom: rem(-4);
+  }
+}

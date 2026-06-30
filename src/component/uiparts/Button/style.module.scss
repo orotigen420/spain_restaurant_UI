@@ -1,21 +1,32 @@
-.container {}
-
-button {
+.button {
     //ボタン共通の定義
     padding: rem(28) rem(25) rem(28) rem(35);
     &[data-icon-position="left"] {
-        padding: rem(26) rem(35) rem(26) rem(25);
+        padding: rem(28) rem(35) rem(28) rem(23);
     }
     gap: rem(1);
     display: inline-flex;
     align-items: center;
     align-self: flex-start;
     border-radius: rem(50);
+    
+    // 下線を消し、カーソルをポインターにする
+    text-decoration: none;
+    cursor: pointer;
+
+    // アニメーションのためのスムーズな変化を設定
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+
+    &:active {
+        transform-origin: bottom; 
+        transform: translateY(2px);
+        transform: scale(0.97);
+    }
 
     //それぞれのバリアントに合わせたスタイリング
     &.cta { 
         /*borderにグラデーションをつけたいので*/
-        border: rem(4) solid transparent;
+        border: rem(5) solid transparent;
         background:
             var(--bg-buttonCTA) padding-box,
             var(--br-buttonCTA) border-box;
@@ -25,9 +36,10 @@ button {
     &.secondary{
         border: rem(3) solid var(--br-whiteWeakEdge);
         background: var(--bg-buttonSecond);
+        box-shadow: 0px 2px 3px 0px rgba(202, 193, 182, 0.74);
     }
 
-    & .word {
+    .word {
         font-family: var(--font-button);
         font-size: rem(32);
         font-weight: 600;

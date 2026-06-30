@@ -1,0 +1,11 @@
+    @import "./functions"; // rem関数を使えるようにする
+
+    @mixin main-background {
+        //@mixinで変数のように使える。使うときはこのsccsをimportして@include
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: var(--bg-main);
+        background-size: rem(26) rem(26), auto;
+        background-position: center, center;
+    }

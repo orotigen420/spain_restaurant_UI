@@ -20,6 +20,7 @@ function FirstView(){
              icon={ArrowRight01Icon}
              iconPosition="right"
              layoutClass={styles.ctaButton}
+             to="selectGuestNumber"
              />
          </div>
         </div>

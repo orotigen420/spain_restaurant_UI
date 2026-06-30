@@ -1,0 +1,52 @@
+@import "../../../styles/mixins";
+
+.container {
+  @include main-background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: rem(40);
+  text-align: center;
+
+  .header {
+    margin-bottom: rem(40);
+
+    h1 {
+      font-size: rem(40);
+      font-family: var(--font-japanese);
+      color: rgba(var(--tx-primary-rgb), 0.8);
+      margin-bottom: rem(12);
+    }
+
+    .guestInfo {
+      font-size: rem(22);
+      font-family: var(--font-japanese);
+      color: #ff8b07;
+      font-weight: 700;
+    }
+  }
+
+  .content {
+    background: var(--bg-card);
+    border: rem(1) solid var(--br-whiteEdge);
+    border-radius: rem(16);
+    padding: rem(48);
+    box-shadow: 0 rem(4) rem(16) rgba(0, 0, 0, 0.05);
+    max-width: rem(600);
+    width: 100%;
+    margin-bottom: rem(60);
+
+    p {
+      font-size: rem(18);
+      color: var(--tx-primary);
+      line-height: 1.6;
+    }
+  }
+
+  .backButton {
+    position: absolute;
+    bottom: rem(50);
+    left: rem(60);
+  }
+}
