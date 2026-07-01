@@ -1,16 +1,9 @@
 .button {
     //ボタン共通の定義
-    padding: rem(28) rem(25) rem(28) rem(35);
-    &[data-icon-position="left"] {
-        padding: rem(28) rem(35) rem(28) rem(23);
-    }
-    gap: rem(1);
     display: inline-flex;
     align-items: center;
     align-self: flex-start;
-    border-radius: rem(50);
-    
-    // 下線を消し、カーソルをポインターにする
+
     text-decoration: none;
     cursor: pointer;
 
@@ -18,13 +11,69 @@
     transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 
     &:active {
-        transform-origin: bottom; 
+        transform-origin: bottom;
         transform: translateY(2px);
         transform: scale(0.97);
     }
 
+    &.lg {
+        padding: rem(28) rem(25) rem(28) rem(35);
+
+        &[data-icon-position="left"] {
+            padding: rem(28) rem(35) rem(28) rem(23);
+        }
+
+        gap: rem(1);
+        border-radius: rem(50);
+
+        .word {
+            font-size: rem(32);
+        }
+
+        .icon {
+            width: rem(40);
+            height: rem(40);
+        }
+    }
+
+    &.md {
+        padding: rem(18) rem(24);
+
+        &[data-icon-position="left"] {
+            padding: rem(18) rem(24);
+        }
+
+        gap: rem(4);
+        border-radius: rem(40);
+
+        .word {
+            font-size: rem(22);
+        }
+
+        .icon {
+            width: rem(28);
+            height: rem(28);
+        }
+    }
+
+    &.sm {
+        padding: rem(14) rem(24);
+        gap: rem(6);
+        border-radius: rem(30);
+
+        .word {
+            font-size: rem(16);
+            font-family: var(--font-japanese);
+        }
+
+        .icon {
+            width: rem(20);
+            height: rem(20);
+        }
+    }
+
     //それぞれのバリアントに合わせたスタイリング
-    &.cta { 
+    &.cta {
         /*borderにグラデーションをつけたいので*/
         border: rem(5) solid transparent;
         background:
@@ -33,7 +82,7 @@
         box-shadow: 0px 3px 4px #FFFFFF44 inset;
     }
 
-    &.secondary{
+    &.secondary {
         border: rem(3) solid var(--br-whiteWeakEdge);
         background: var(--bg-buttonSecond);
         box-shadow: 0px 2px 3px 0px rgba(202, 193, 182, 0.74);
@@ -41,16 +90,12 @@
 
     .word {
         font-family: var(--font-button);
-        font-size: rem(32);
         font-weight: 600;
         color: var(--tx-primary);
         line-height: 1;
     }
 
     .icon {
-        width: rem(40);
-        height: rem(40);
-
         path {
             stroke: var(--tx-primary);
             stroke-width: rem(2.5);

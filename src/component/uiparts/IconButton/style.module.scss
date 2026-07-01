@@ -1,0 +1,57 @@
+.iconButton {
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: solid var(--br-whiteEdge);
+    color: var(--tx-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 rem(2) rem(3) rgba(202, 193, 182, 0.74);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    outline: none;
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: 0 rem(2) rem(4) rgba(0, 0, 0, 0.05);
+    }
+
+    &:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+    }
+
+    &:active {}
+
+    // サイズ別のバリアント
+    &.sm {
+        width: rem(36);
+        height: rem(36);
+        border-width: rem(1.5);
+
+        path {
+            stroke-width: rem(2.5);
+        }
+    }
+
+    &.md {
+        width: rem(56);
+        height: rem(56);
+        border-width: rem(2);
+
+        path {
+            stroke-width: rem(4);
+        }
+    }
+
+    &.lg {
+        width: rem(72);
+        height: rem(72);
+        border-width: rem(2);
+
+        path {
+            stroke-width: rem(3);
+            stroke: rgba(var(--tx-card-rgb), 0.7);
+        }
+    }
+}

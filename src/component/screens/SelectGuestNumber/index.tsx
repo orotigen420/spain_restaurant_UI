@@ -4,7 +4,9 @@ import { useApp } from '../../../context/AppContext';
 import styles from "./style.module.scss";
 import Button from '../../uiparts/Button';
 import GuestNumberCard from '../../uiparts/GuestNumberCard';
-import { ArrowLeft01Icon, MinusSignIcon, PlusSignIcon } from "hugeicons-react";
+import IconButton from '../../uiparts/IconButton';
+import { ArrowRight01Icon, ArrowLeft01Icon, MinusSignIcon, PlusSignIcon } from "hugeicons-react";
+import { motion, AnimatePresence } from 'framer-motion';
 
 function SelectGuestNumber() {
     const { setGuestCount } = useApp();
@@ -47,44 +49,69 @@ function SelectGuestNumber() {
                 to="/"
             />
 
-            {isModalOpen && (
-                <div className={styles.modalOverlay}>
-                    <div className={styles.modal}>
-                        <h2>ご利用人数を入力してください</h2>
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div
+                        className={styles.modalOverlay}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                        <motion.div
+                            className={styles.modal}
+                            initial={{ scale: 0.9, y: 15, opacity: 0 }}
+                            animate={{ scale: 1, y: 0, opacity: 1 }}
+                            exit={{ scale: 0.9, y: 15, opacity: 0 }}
+                            transition={{ duration: 0.2, ease: "easeInOut" }}
+                        >
+                            <h2>ご利用人数を入力してください</h2>
 
-                        <div className={styles.stepper}>
-                            <button
-                                type="button"
-                                className={styles.stepBtn}
-                                onClick={() => setTempCount(prev => Math.max(5, prev - 1))}
-                                disabled={tempCount <= 5}
-                            >
-                                <MinusSignIcon size={24} />
-                            </button>
-                            <span className={styles.count}>
-                                {tempCount}
-                                <span className={styles.unit}>名</span>
-                            </span>
-                            <button
-                                type="button"
-                                className={styles.stepBtn}
-                                onClick={() => setTempCount(prev => Math.min(99, prev + 1))}
-                            >
-                                <PlusSignIcon size={24} />
-                            </button>
-                        </div>
+                            <div className={styles.stepper}>
+                                <IconButton
+                                    icon={MinusSignIcon}
+                                    onClick={() => setTempCount(prev => Math.max(5, prev - 1))}
+                                    disabled={tempCount <= 5}
+                                    ariaLabel="人数を減らす"
+                                    size="lg"
+                                />
+                                <div className={styles.countContainer}>
+                                    <span className={styles.countNumber}>{tempCount}</span>
+                                    <span className={styles.unit}>名</span>
+                                </div>
+                                <IconButton
+                                    icon={PlusSignIcon}
+                                    onClick={() => setTempCount(prev => Math.min(99, prev + 1))}
+                                    disabled={tempCount >= 99}
+                                    ariaLabel="人数を増やす"
+                                    size="lg"
+                                />
+                            </div>
 
-                        <div className={styles.modalActions}>
-                            <button type="button" className={styles.cancelBtn} onClick={() => setIsModalOpen(false)}>
-                                キャンセル
-                            </button>
-                            <button type="button" className={styles.confirmBtn} onClick={handleModalConfirm}>
-                                確定
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+                            <div className={styles.modalActions}>
+                                <Button
+                                    variant="secondary"
+                                    text="5人未満"
+                                    size="md"
+                                    icon={ArrowLeft01Icon}
+                                    iconPosition="left"
+                                    onClick={() => setIsModalOpen(false)}
+                                    layoutClass={styles.cancelBtn}
+                                />
+                                <Button
+                                    variant="cta"
+                                    text="OK"
+                                    icon={ArrowRight01Icon}
+                                    iconPosition="right"
+                                    size="md"
+                                    onClick={handleModalConfirm}
+                                    layoutClass={styles.confirmBtn}
+                                />
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

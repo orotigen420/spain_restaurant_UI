@@ -4,20 +4,55 @@ import styles from "./style.module.scss";
 
 // propsの定義
 interface CtaButtonProps {
-    variant: 'cta' | 'secondary' //ボタンの種類
-    text: string; //ボタンに挿入する文言
-    icon?: React.ComponentType<{ size?: number; className?: string }>; //どういったアイコンを使うか
-    iconPosition?: 'left' | 'right'; //ボタン内アイコンと文言の位置関係
-    layoutClass?: string; //外部からボタンそのものの位置を操作
-    onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void; //クリック時の処理
-    to?: string; //遷移先パス
+    /** ボタンの見た目バリアント（メインの黄色グラデーション / 二次アクション用） */
+    variant: 'cta' | 'secondary';
+
+    /** ボタンに表示するテキスト */
+    text: string;
+
+    /** 表示するアイコン（hugeicons-react などのコンポーネント） */
+    icon?: React.ComponentType<{ size?: number; className?: string }>;
+
+    /** アイコンとテキストの配置順（デフォルト: right） */
+    iconPosition?: 'left' | 'right';
+
+    /** ボタンのサイズ（デフォルト: lg） */
+    size?: 'sm' | 'md' | 'lg';
+
+    /** 外部からレイアウトや余白を調整するための追加クラス名 */
+    layoutClass?: string;
+
+    /** クリック時の挙動（button または Link の両方に対応） */
+    onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+
+    /** 画面遷移先のパス（指定された場合は a タグ、未指定の場合は button タグとしてレンダリングします） */
+    to?: string;
+
+    /** アクセシビリティ用の音声読み上げラベル */
+    ariaLabel?: string;
 }
 
-function CtaButton({ variant, text, icon: Icon, iconPosition = 'right', layoutClass, onClick, to }: CtaButtonProps) {
-    const buttonClassName = `${styles.button} ${layoutClass || ""} ${styles[variant]}`;
+function CtaButton({
+    variant,
+    text,
+    icon: Icon,
+    iconPosition = 'right',
+    layoutClass,
+    onClick,
+    to,
+    size = 'lg',
+    ariaLabel
+}: CtaButtonProps) {
+    const buttonClassName = `${styles.button} ${layoutClass || ""} ${styles[variant]} ${styles[size]}`;
     if (to) {
         return (
-            <Link to={to} className={buttonClassName} data-icon-position={iconPosition} onClick={onClick}>
+            <Link
+                to={to}
+                className={buttonClassName}
+                data-icon-position={iconPosition}
+                onClick={onClick}
+                aria-label={ariaLabel}
+            >
                 {Icon && iconPosition === 'left' && <Icon className={styles.icon} />}
                 <span className={styles.word}>{text}</span>
                 {Icon && iconPosition === 'right' && <Icon className={styles.icon} />}
@@ -25,7 +60,12 @@ function CtaButton({ variant, text, icon: Icon, iconPosition = 'right', layoutCl
         )
     }
     return (
-        <button className={buttonClassName} data-icon-position={iconPosition} onClick={onClick}>
+        <button
+            className={buttonClassName}
+            data-icon-position={iconPosition}
+            onClick={onClick}
+            aria-label={ariaLabel}
+        >
             {Icon && iconPosition === 'left' && <Icon className={styles.icon} />}
             <span className={styles.word}>{text}</span>
             {Icon && iconPosition === 'right' && <Icon className={styles.icon} />}
