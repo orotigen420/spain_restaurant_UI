@@ -50,10 +50,6 @@
 }
 
 // Modal Styles
-.modal-overlay {
-    @include modalOverlay;
-}
-
 .modal {
     background: var(--bg-main);
     border: rem(3) solid var(--br-whiteEdge);
