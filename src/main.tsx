@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, useLocation, useOutlet, Outlet } from "react-router";
 import { AnimatePresence, motion } from 'framer-motion';

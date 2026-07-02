@@ -42,7 +42,7 @@
         }
     }
 
-    .backButton {
+    .back-button {
         position: absolute;
         bottom: rem(50);
         left: rem(60);
@@ -50,7 +50,7 @@
 }
 
 // Modal Styles
-.modalOverlay {
+.modal-overlay {
     @include modalOverlay;
 }
 
@@ -84,13 +84,13 @@
     justify-content: center;
     gap: rem(24);
 
-    .countContainer {
+    .count-container {
         display: flex;
         align-items: baseline;
         justify-content: center;
         width: rem(160);
 
-        .countNumber {
+        .count-number {
             font-size: rem(80);
             font-weight: 500;
             color: var(--tx-primary);
@@ -110,14 +110,14 @@
     }
 }
 
-.modalActions {
+.modal-actions {
     display: flex;
     gap: rem(16);
     justify-content: center;
     width: 100%;
 
-    .cancelBtn,
-    .confirmBtn {
+    .cancel-btn,
+    .confirm-btn {
         flex: 1;
         justify-content: center;
         align-self: auto;

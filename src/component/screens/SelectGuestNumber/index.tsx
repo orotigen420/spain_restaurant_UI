@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../../../context/AppContext';
 import styles from "./style.module.scss";
@@ -45,14 +45,14 @@ function SelectGuestNumber() {
                 text="Back"
                 icon={ArrowLeft01Icon}
                 iconPosition="left"
-                layoutClass={styles.backButton}
+                layoutClass={styles['back-button']}
                 to="/"
             />
 
             <AnimatePresence>
                 {isModalOpen && (
                     <motion.div
-                        className={styles.modalOverlay}
+                        className={styles['modal-overlay']}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -75,8 +75,8 @@ function SelectGuestNumber() {
                                     ariaLabel="人数を減らす"
                                     size="lg"
                                 />
-                                <div className={styles.countContainer}>
-                                    <span className={styles.countNumber}>{tempCount}</span>
+                                <div className={styles['count-container']}>
+                                    <span className={styles['count-number']}>{tempCount}</span>
                                     <span className={styles.unit}>名</span>
                                 </div>
                                 <IconButton
@@ -88,7 +88,7 @@ function SelectGuestNumber() {
                                 />
                             </div>
 
-                            <div className={styles.modalActions}>
+                            <div className={styles['modal-actions']}>
                                 <Button
                                     variant="secondary"
                                     text="5人未満"
@@ -96,7 +96,7 @@ function SelectGuestNumber() {
                                     icon={ArrowLeft01Icon}
                                     iconPosition="left"
                                     onClick={() => setIsModalOpen(false)}
-                                    layoutClass={styles.cancelBtn}
+                                    layoutClass={styles['cancel-btn']}
                                 />
                                 <Button
                                     variant="cta"
@@ -105,7 +105,7 @@ function SelectGuestNumber() {
                                     iconPosition="right"
                                     size="md"
                                     onClick={handleModalConfirm}
-                                    layoutClass={styles.confirmBtn}
+                                    layoutClass={styles['confirm-btn']}
                                 />
                             </div>
                         </motion.div>
