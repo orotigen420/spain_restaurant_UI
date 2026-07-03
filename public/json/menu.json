@@ -1,0 +1,12 @@
+{
+  "menu": [
+    {
+      "menuId": "0001",
+      "categoryId": "paella",
+      "nameJapanese": "魚介のパエリア",
+      "nameEnglish": "Paella de Mariscos",
+      "price": 1800,
+      "imagePath": "./img/f0001.jpg"
+    }
+  ]
+}

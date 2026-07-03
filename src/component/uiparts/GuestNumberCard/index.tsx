@@ -20,7 +20,7 @@ function GuestNumberCard({ number, onClick }: GuestNumberCardProps) {
                 {Array.from({ length: glassCount }).map((_, index) => (
                     <img
                         key={index}
-                        src="/wine.svg"
+                        src="/svg/wine.svg"
                         className={styles.glass}
                         alt="wine glass"
                     />

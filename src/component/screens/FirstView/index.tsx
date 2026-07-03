@@ -6,7 +6,7 @@ function FirstView() {
     //-を含む場合は.でつなぐのではなくブラケット記法を使う。jsに誤解されないように
     return (
         <div className={styles.container}>
-            <img src="/paeria_top.jpeg" alt="Paeria Top" />
+            <img src="/jpeg/paeria_top.jpeg" alt="Paeria Top" />
             <div className={styles['color-overlay']}></div>
             <div className={styles['info-holder']}>
                 <h2>スペインの天国</h2>

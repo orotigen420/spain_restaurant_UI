@@ -7,18 +7,12 @@
     height: rem(400);
     background: var(--bg-card);
     border: rem(3) solid var(--br-whiteEdge);
-    border-radius: rem(24);
-    padding: rem(28) rem(36) rem(24) rem(36);
+    border-radius: rem(12);
+    padding: rem(30) rem(29) rem(24) rem(29);
     box-shadow: 0 rem(6) rem(16) rgba(0, 0, 0, 0.08),
         inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.5);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-
-    &:hover {
-        transform: translateY(rem(-4));
-        box-shadow: 0 rem(12) rem(24) rgba(0, 0, 0, 0.12),
-            inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.6);
-    }
 
     &:active {
         transform: scale(0.98) translateY(rem(2));
@@ -29,36 +23,34 @@
     .header {
         display: flex;
         flex-direction: column;
-        margin-bottom: rem(16);
+        font-family: var(--font-main);
+        font-weight:700;
     }
 
     .foodName {
-        font-family: var(--font-main);
-        font-size: rem(28);
-        font-weight: 700;
-        line-height: 1.15;
+        font-size: rem(30);
+        line-height: 1.10;
         color: var(--tx-card);
-        letter-spacing: -0.02em;
+        letter-spacing: 0.06em;
         margin-bottom: rem(4);
     }
 
     .priceText {
         font-family: var(--font-main);
-        font-size: rem(22);
-        font-weight: 700;
+        font-size: rem(24);
         color: var(--tx-card);
     }
 
     .foodImage {
         width: rem(248);
         height: rem(206);
-        object-fit: cover;
+        object-fit: contain;
         margin: 0 auto;
     }
 
     .idSec {
         margin-top: auto;
-        border-top: rem(1) solid var(--br-whiteEdge);
+        border-top: rem(1.5) solid rgba(var(--tx-card-rgb),0.6);
         padding-top: rem(12);
         display: flex;
         justify-content: space-between;
