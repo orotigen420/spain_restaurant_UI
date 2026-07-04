@@ -4,9 +4,9 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  css:{
-    preprocessorOptions:{
-      scss:{
+  css: {
+    preprocessorOptions: {
+      scss: {
         additionalData: (content, filename) => {
           // _functions.scss自身には自動挿入しないように(無限ループ防止)
           if (filename.includes('_functions.scss')) {
@@ -18,5 +18,15 @@ export default defineConfig({
         loadPaths: ['src']
       }
     }
+  },
+  server: {
+    host: true,
+    port: 5173,
+    allowedHosts: [
+      '.loca.lt', // localtunnelのURLを許可
+      // ngrokのURLを許可
+      '.ngrok-free.app',
+      '.ngrok-free.dev'
+    ],
   }
 })

@@ -1,14 +1,17 @@
 @use "../../../styles/mixins" as *;
 
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
     width: rem(320);
     height: rem(400);
     background: var(--bg-card);
     border: rem(3) solid var(--br-whiteEdge);
     border-radius: rem(12);
-    padding: rem(30) rem(29) rem(24) rem(29);
+    padding: rem(30) rem(25) rem(24) rem(25);
     box-shadow: 0 rem(6) rem(16) rgba(0, 0, 0, 0.08),
         inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.5);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -20,45 +23,84 @@
             inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.3);
     }
 
+    &.soldOut {
+        cursor: not-allowed;
+        pointer-events: none;
+        box-shadow: none;
+
+        .header,
+        .bottomContent {
+            filter: blur(2.5px) grayscale(0.5);
+            opacity: 0.35;
+        }
+    }
+
     .header {
         display: flex;
         flex-direction: column;
         font-family: var(--font-main);
-        font-weight:700;
+        font-weight: 500;
+
+        .foodName {
+            font-size: rem(30);
+            line-height: 1.10;
+            color: var(--tx-card);
+            letter-spacing: rem(-0.6);
+            margin-bottom: rem(4);
+        }
+
+        .priceText {
+            font-size: rem(24);
+            color: var(--tx-card);
+        }
     }
 
-    .foodName {
-        font-size: rem(30);
-        line-height: 1.10;
-        color: var(--tx-card);
-        letter-spacing: 0.06em;
-        margin-bottom: rem(4);
-    }
-
-    .priceText {
-        font-family: var(--font-main);
-        font-size: rem(24);
-        color: var(--tx-card);
-    }
-
-    .foodImage {
-        width: rem(248);
-        height: rem(206);
-        object-fit: contain;
-        margin: 0 auto;
-    }
-
-    .idSec {
-        margin-top: auto;
-        border-top: rem(1.5) solid rgba(var(--tx-card-rgb),0.6);
-        padding-top: rem(12);
+    .bottomContent {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        width: 100%;
 
-        font-family: var(--font-sub);
-        font-size: rem(12);
-        color: rgba(var(--tx-card-rgb), 0.6);
-        letter-spacing: 0.05em;
+        .foodImage {
+            width: rem(248);
+            height: rem(206);
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .idSec {
+            border-top: rem(1.5) solid rgba(var(--tx-card-rgb), 0.2);
+            padding-top: rem(12);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-family: var(--font-sub);
+            font-size: rem(12);
+            color: rgba(var(--tx-card-rgb), 0.6);
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .soldOutSeal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-5deg);
+        width: rem(360);
+        height: rem(180);
+        background: url('/img/soldoutSeal.png') no-repeat center center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: rgba(var(--tx-card-rgb));
+        font-family: var(--font-main);
+        font-size: rem(36);
+        font-weight: 600;
+        letter-spacing: rem(1);
+        white-space: nowrap;
+        z-index: 10;
+        pointer-events: none;
     }
 }

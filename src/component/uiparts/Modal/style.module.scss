@@ -2,7 +2,7 @@
 
 .overlay {
     @include modalOverlay;
-    
+
     // デフォルトで画面中央に配置
     display: flex;
     justify-content: center;
@@ -10,8 +10,7 @@
 }
 
 .modalContent {
-    // 基本のリセット
-    display: block;
+
     outline: none;
     // 子要素や外部クラス (contentClassName) でスタイルを拡張できるようにします
 }
