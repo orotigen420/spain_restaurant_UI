@@ -1,6 +1,6 @@
 import styles from './style.module.scss';
 
-export type CategoryTheme = 'lemon' | 'olive' | 'orange' | 'grape' | 'sky';
+export type CategoryTheme = 'amber' | 'olive' | 'terracotta' | 'cinnamon' | 'sangria';
 
 interface CategoryTabProps {
   /** タブに表示するテキスト */

@@ -35,7 +35,7 @@
     font-family: var(--font-button);
     font-size: rem(28);
     font-weight: 600;
-    color: rgba(var(--tx-primary-rgb), 0.7);
+    color: rgba(var(--tx-primary-rgb), 0.85);
     margin-left: rem(24);
     transition: color 0.1s ease;
   }
@@ -49,13 +49,13 @@
   }
 
   // Themes setup
-  &.lemon {
+  &.amber {
     .colorIndicator {
-      background-color: var(--theme-lemon);
+      background-color: var(--theme-amber);
     }
 
     &.active {
-      background-color: var(--theme-lemon);
+      background-color: var(--theme-amber);
       border-color: transparent;
 
       .categoryLabel {
@@ -79,13 +79,13 @@
     }
   }
 
-  &.orange {
+  &.terracotta {
     .colorIndicator {
-      background-color: var(--theme-orange);
+      background-color: var(--theme-terracotta);
     }
 
     &.active {
-      background-color: var(--theme-orange);
+      background-color: var(--theme-terracotta);
       border-color: transparent;
 
       .categoryLabel {
@@ -94,13 +94,13 @@
     }
   }
 
-  &.grape {
+  &.cinnamon {
     .colorIndicator {
-      background-color: var(--theme-grape);
+      background-color: var(--theme-cinnamon);
     }
 
     &.active {
-      background-color: var(--theme-grape);
+      background-color: var(--theme-cinnamon);
       border-color: transparent;
 
       .categoryLabel {
@@ -109,13 +109,13 @@
     }
   }
 
-  &.sky {
+  &.sangria {
     .colorIndicator {
-      background-color: var(--theme-sky);
+      background-color: var(--theme-sangria);
     }
 
     &.active {
-      background-color: var(--theme-sky);
+      background-color: var(--theme-sangria);
       border-color: transparent;
 
       .categoryLabel {

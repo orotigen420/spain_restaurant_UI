@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 
 interface FoodCardProps {
@@ -12,9 +13,11 @@ interface FoodCardProps {
 function FoodCard({ id, name, price, image, isSoldOut = false, onClick }: FoodCardProps) {
     return (
         // 在庫切れの場合、isSoldOutがtrueになり、soldOutクラスが適用
-        <article
+        <motion.article
             className={`${styles.card} ${isSoldOut ? styles.soldOut : ""}`}
             onClick={isSoldOut ? undefined : onClick}
+            whileTap={isSoldOut ? undefined : { scale: 0.97, y: 2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
             <div className={styles.header}>
                 <div className={styles.foodName}>{name}</div>
@@ -34,7 +37,7 @@ function FoodCard({ id, name, price, image, isSoldOut = false, onClick }: FoodCa
                     SOLD OUT
                 </div>
             )}
-        </article>
+        </motion.article>
     );
 }
 

@@ -7,7 +7,7 @@ import styles from './style.module.scss';
 
 interface FoodItem {
   id: string;
-  categoryId: 'tapas' | 'pallea' | 'sweats' | 'drink';
+  categoryId: 'tapas' | 'paella' | 'sweets' | 'drink';
   name: string;
   price: string;
   image: string;
@@ -15,34 +15,34 @@ interface FoodItem {
 }
 
 const FOOD_ITEMS: FoodItem[] = [
-  // Pallea (デザインのスペル「Pallea」に合わせています)
-  { id: '0813', categoryId: 'pallea', name: 'Paella de Mariscos ', price: '¥1,500', image: '/img/pallea1.png' },
-  { id: '0814', categoryId: 'pallea', name: 'Paella Valenciana Special', price: '¥1,600', image: '/img/pallea1.png' },
-  { id: '0815', categoryId: 'pallea', name: 'Paella Negra de Calamar', price: '¥1,700', image: '/img/pallea1.png', isSoldOut: true },
-  { id: '0816', categoryId: 'pallea', name: 'Paella de Verduras', price: '¥1,400', image: '/img/pallea1.png' },
-  { id: '0817', categoryId: 'pallea', name: 'Paella de Pollo y Setas', price: '¥1,500', image: '/img/pallea1.png' },
-  { id: '0818', categoryId: 'pallea', name: 'Paella Mixta Deluxe', price: '¥1,800', image: '/img/pallea1.png' },
+  // Paella
+  { id: '0813', categoryId: 'paella', name: 'Paella de Mariscos ', price: '¥1,500', image: '/img/paella1.png' },
+  { id: '0814', categoryId: 'paella', name: 'Paella Valenciana Special', price: '¥1,600', image: '/img/paella1.png' },
+  { id: '0815', categoryId: 'paella', name: 'Paella Negra de Calamar', price: '¥1,700', image: '/img/paella1.png', isSoldOut: true },
+  { id: '0816', categoryId: 'paella', name: 'Paella de Verduras', price: '¥1,400', image: '/img/paella1.png' },
+  { id: '0817', categoryId: 'paella', name: 'Paella de Pollo y Setas', price: '¥1,500', image: '/img/paella1.png' },
+  { id: '0818', categoryId: 'paella', name: 'Paella Mixta Deluxe', price: '¥1,800', image: '/img/paella1.png' },
 
   // Tapas
-  { id: '0101', categoryId: 'tapas', name: 'Jamón Ibérico de Bellota', price: '¥1,200', image: '/img/pallea1.png' },
-  { id: '0102', categoryId: 'tapas', name: 'Patatas Bravas Classic', price: '¥600', image: '/img/pallea1.png', isSoldOut: true },
-  { id: '0103', categoryId: 'tapas', name: 'Gambas al Ajillo Hot', price: '¥900', image: '/img/pallea1.png' },
-  { id: '0104', categoryId: 'tapas', name: 'Tortilla de Patatas', price: '¥700', image: '/img/pallea1.png' },
-  { id: '0105', categoryId: 'tapas', name: 'Croquetas de Jamón', price: '¥650', image: '/img/pallea1.png' },
-  { id: '0106', categoryId: 'tapas', name: 'Calamares a la Romana', price: '¥850', image: '/img/pallea1.png' },
+  { id: '0101', categoryId: 'tapas', name: 'Jamón Ibérico de Bellota', price: '¥1,200', image: '/img/paella1.png' },
+  { id: '0102', categoryId: 'tapas', name: 'Patatas Bravas Classic', price: '¥600', image: '/img/paella1.png', isSoldOut: true },
+  { id: '0103', categoryId: 'tapas', name: 'Gambas al Ajillo Hot', price: '¥900', image: '/img/paella1.png' },
+  { id: '0104', categoryId: 'tapas', name: 'Tortilla de Patatas', price: '¥700', image: '/img/paella1.png' },
+  { id: '0105', categoryId: 'tapas', name: 'Croquetas de Jamón', price: '¥650', image: '/img/paella1.png' },
+  { id: '0106', categoryId: 'tapas', name: 'Calamares a la Romana', price: '¥850', image: '/img/paella1.png' },
 
-  // Sweats
-  { id: '0201', categoryId: 'sweats', name: 'Crema Catalana Caramel', price: '¥500', image: '/img/pallea1.png' },
-  { id: '0202', categoryId: 'sweats', name: 'Churros con Chocolate', price: '¥600', image: '/img/pallea1.png' },
-  { id: '0203', categoryId: 'sweats', name: 'Tarta de Queso Vasca', price: '¥650', image: '/img/pallea1.png' },
-  { id: '0204', categoryId: 'sweats', name: 'Flan Casero con Nata', price: '¥480', image: '/img/pallea1.png' },
+  // Sweets
+  { id: '0201', categoryId: 'sweets', name: 'Crema Catalana Caramel', price: '¥500', image: '/img/paella1.png' },
+  { id: '0202', categoryId: 'sweets', name: 'Churros con Chocolate', price: '¥600', image: '/img/paella1.png' },
+  { id: '0203', categoryId: 'sweets', name: 'Tarta de Queso Vasca', price: '¥650', image: '/img/paella1.png' },
+  { id: '0204', categoryId: 'sweets', name: 'Flan Casero con Nata', price: '¥480', image: '/img/paella1.png' },
 
   // Drink
-  { id: '0301', categoryId: 'drink', name: 'Sangria Tradicional', price: '¥700', image: '/img/pallea1.png' },
-  { id: '0302', categoryId: 'drink', name: 'Cerveza Alhambra Especial', price: '¥650', image: '/img/pallea1.png' },
-  { id: '0303', categoryId: 'drink', name: 'Café con Leche', price: '¥450', image: '/img/pallea1.png' },
-  { id: '0304', categoryId: 'drink', name: 'Tinto de Verano', price: '¥600', image: '/img/pallea1.png' },
-  { id: '0305', categoryId: 'drink', name: 'Zumo de Naranja Natural', price: '¥550', image: '/img/pallea1.png' },
+  { id: '0301', categoryId: 'drink', name: 'Sangria Tradicional', price: '¥700', image: '/img/paella1.png' },
+  { id: '0302', categoryId: 'drink', name: 'Cerveza Alhambra Especial', price: '¥650', image: '/img/paella1.png' },
+  { id: '0303', categoryId: 'drink', name: 'Café con Leche', price: '¥450', image: '/img/paella1.png' },
+  { id: '0304', categoryId: 'drink', name: 'Tinto de Verano', price: '¥600', image: '/img/paella1.png' },
+  { id: '0305', categoryId: 'drink', name: 'Zumo de Naranja Natural', price: '¥550', image: '/img/paella1.png' },
 ];
 
 // 親コンテナのアニメーション設定

@@ -14,11 +14,17 @@
     padding: rem(30) rem(25) rem(24) rem(25);
     box-shadow: 0 rem(6) rem(16) rgba(0, 0, 0, 0.08),
         inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.5);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    // transition: all は Framer Motion の transform アニメーションと競合するため、特定プロパティのみに制限します
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
 
+    // GPU支援を有効にしてアニメーション中のフォントや画像のぶれを防ぎます
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
     &:active {
-        transform: scale(0.98) translateY(rem(2));
+        // transformは Framer Motion 側で制御するため、影のみ変化させます
         box-shadow: 0 rem(4) rem(8) rgba(0, 0, 0, 0.06),
             inset 0 rem(1) rem(1) rgba(255, 255, 255, 0.3);
     }
@@ -59,12 +65,21 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        
+        // 子要素である画像の3Dアニメーション時の位置ブレを防ぎます
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
 
         .foodImage {
             width: rem(248);
             height: rem(206);
             object-fit: contain;
             margin: 0 auto;
+
+            // アニメーション中のブレ・ボケ（ラスタライズのブレ）を防止します
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         .idSec {

@@ -3,8 +3,8 @@
 .capsule {
     display: inline-flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: rem(2) solid var(--br-whiteEdge);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: rem(3) solid var(--br-whiteEdge);
     border-radius: rem(100);
     box-shadow: 0 rem(8) rem(24) rgba(49, 51, 41, 0.08),
         inset 0 rem(1) rem(2) rgba(255, 255, 255, 0.4);

@@ -4,11 +4,11 @@ import styles from './style.module.scss';
 
 // カテゴリーの定義（ID、表示名、テーマカラー用クラス名）
 const CATEGORIES = [
-  { id: 'all', label: 'All', theme: 'lemon' },
+  { id: 'all', label: 'All', theme: 'amber' },
   { id: 'tapas', label: 'Tapas', theme: 'olive' },
-  { id: 'pallea', label: 'Pallea', theme: 'orange' },
-  { id: 'sweats', label: 'Sweats', theme: 'grape' },
-  { id: 'drink', label: 'Drink', theme: 'sky' },
+  { id: 'paella', label: 'Paella', theme: 'terracotta' },
+  { id: 'drink', label: 'Drink', theme: 'sangria' },
+  { id: 'sweets', label: 'Sweets', theme: 'cinnamon' },
 ] as const;
 
 type CategoryId = typeof CATEGORIES[number]['id'];
