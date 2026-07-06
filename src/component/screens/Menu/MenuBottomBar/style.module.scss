@@ -74,8 +74,17 @@
     width: rem(1.5);
 }
 
-.cartBtn {
+.cartBtnWrapper {
     align-self: flex-end;
+    pointer-events: auto;
+    position: relative;
+}
+
+.cartBtn {
     display: inline-flex;
-    pointer-events: auto; // ボタン操作を有効化
+}
+
+.badge {
+    right: rem(1);
+    top: rem(-30);
 }

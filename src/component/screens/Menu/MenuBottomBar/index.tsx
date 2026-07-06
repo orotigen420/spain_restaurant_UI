@@ -1,7 +1,9 @@
 import { Fragment } from 'react';
 import { UserIcon, Search01Icon, Note01Icon, ArrowRight01Icon } from 'hugeicons-react';
+import { useApp } from '../../../../context/AppContext';
 import GlassCapsule from '../../../uiparts/GlassCapsule';
 import Button from '../../../uiparts/Button';
+import Badge from '../../../uiparts/Badge';
 import styles from './style.module.scss';
 
 interface MenuBottomBarProps {
@@ -24,6 +26,8 @@ function MenuBottomBar({
     onViewHistory = () => console.log('View history'),
     onGoToCart = () => console.log('Go to cart')
 }: MenuBottomBarProps) {
+    const { totalCartQuantity } = useApp();
+
     // クイックアクションの定義リスト
     const actions = [
         {
@@ -61,15 +65,18 @@ function MenuBottomBar({
                 ))}
             </GlassCapsule>
 
-            {/* 右側：目立つオレンジのカートボタン */}
-            <Button
-                variant="cta"
-                text="Go to Cart"
-                icon={ArrowRight01Icon}
-                iconPosition="right"
-                onClick={onGoToCart}
-                layoutClass={styles.cartBtn}
-            />
+            {/* 右側：目立つオレンジのカートボタン＆バッジ */}
+            <div className={styles.cartBtnWrapper}>
+                <Button
+                    variant="cta"
+                    text="Go to Cart"
+                    icon={ArrowRight01Icon}
+                    iconPosition="right"
+                    onClick={onGoToCart}
+                    layoutClass={styles.cartBtn}
+                />
+                <Badge count={totalCartQuantity} className={styles.badge} />
+            </div>
         </div>
     );
 }

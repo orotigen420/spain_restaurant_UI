@@ -6,6 +6,7 @@ import MenuBottomBar from './MenuBottomBar';
 import FoodDetailModal from './FoodDetailModal';
 import styles from './style.module.scss';
 
+import { useApp } from '../../../context/AppContext';
 import foodItemsRaw from '../../../data/foodItems.json';
 
 interface FoodItem {
@@ -64,6 +65,7 @@ function Menu() {
   const [activeCategory, setActiveCategory] = useState<CategoryId>('all');
   const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { addToCart } = useApp();
 
   const filteredFoods = sortFoodsByAvailability(
     // カテゴリーによるフィルタリングと在庫状況による並べ替え
@@ -78,8 +80,7 @@ function Menu() {
   };
 
   const handleAddToCart = (food: FoodItem, quantity: number) => {
-    console.log(`Added to cart: ${food.name} (Qty: ${quantity})`);
-    // カート機能の追加統合は将来こちらで行います
+    addToCart(food.id, quantity);
   };
 
   return (

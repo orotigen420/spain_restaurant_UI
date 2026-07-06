@@ -1,0 +1,22 @@
+@use "../../../styles/functions" as *;
+
+.badge {
+    align-items: center;
+    background: var(--theme-sangria);
+    border: rem(4) solid #fff;
+    border-radius: rem(28);
+    box-shadow: 0 rem(4) rem(12) rgba(#000, .2);
+    color: #fff;
+    display: flex;
+    font-family: var(--font-sub);
+    font-size: rem(28);
+    font-weight: 600;
+    height: rem(56);
+    justify-content: center;
+    min-width: rem(56);
+    padding: 0 rem(6);
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 10;
+}
