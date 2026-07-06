@@ -1,12 +1,12 @@
 @use "../../../styles/mixins" as *;
 
 .overlay {
-    @include modalOverlay;
+    align-items: center;
 
     // デフォルトで画面中央に配置
     display: flex;
     justify-content: center;
-    align-items: center;
+    @include modalOverlay;
 }
 
 .modalContent {

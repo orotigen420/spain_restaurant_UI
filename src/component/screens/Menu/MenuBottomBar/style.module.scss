@@ -1,81 +1,81 @@
 @use "../../../../styles/mixins" as *;
 
 .bottomContainer {
-    position: absolute;
-    bottom: 0;
-    left: rem(400);
-    right: 0;
-    height: rem(140);
+    -webkit-backdrop-filter: blur(rem(2));
+    align-items: flex-end;
+    backdrop-filter: blur(rem(2));
     // すりガラスの背景色。薄めの白グレーに馴染ませる
     background: linear-gradient(to top,
-            rgba(230, 230, 224, 0.7) 0%,
-            rgba(230, 230, 224, 0.4) 20%,
-            rgba(230, 230, 224, 0) 100%);
-    backdrop-filter: blur(rem(2));
-    -webkit-backdrop-filter: blur(rem(2));
+            rgba(#e6e6e0, .7) 0%,
+            rgba(#e6e6e0, .4) 20%,
+            rgba(#e6e6e0, 0) 100%);
+    bottom: 0;
+    box-sizing: border-box;
 
     display: flex;
-    align-items: flex-end;
+    height: rem(140);
     justify-content: space-between;
+    left: rem(400);
     padding: 0 rem(30) rem(22) rem(30);
-    z-index: 100;
     pointer-events: none; // 余白部分は下のメニューをスクロールできるようにする
-    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    z-index: 100;
 }
 
 .leftToolbar {
-    pointer-events: auto; // ボタン操作を有効化
+    align-items: center;
+    display: flex;
+    gap: rem(40);
     height: rem(100);
     padding: 0 rem(64);
-    display: flex;
-    align-items: center;
-    gap: rem(40);
+    pointer-events: auto; // ボタン操作を有効化
 }
 
 .actionBtn {
+    align-items: center;
     background: none;
     border: none;
-    outline: none;
+    color: var(--tx-primary);
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: rem(6);
-    padding: 0 rem(16);
     height: 100%;
-    color: var(--tx-primary);
-    transition: opacity 0.2s ease, transform 0.1s ease;
+    justify-content: center;
+    outline: none;
+    padding: 0 rem(16);
+    transition: opacity .2s ease, transform .1s ease;
 
     &:active {
-        opacity: 0.9;
-        transform: scale(0.96);
+        opacity: .9;
+        transform: scale(.96);
     }
 
     .icon {
-        width: rem(40);
+        color: rgba(var(--tx-primary-rgb), .9);
         height: rem(40);
-        color: rgba(var(--tx-primary-rgb), 0.9);
+        width: rem(40);
     }
 
     .label {
+        color: rgba(var(--tx-primary-rgb), .9);
         font-family: var(--font-japanese);
         font-size: rem(12);
         font-weight: 600;
         text-align: center;
         white-space: nowrap;
-        color: rgba(var(--tx-primary-rgb), 0.9);
     }
 }
 
 .divider {
-    width: rem(1.5);
+    background-color: rgba(#313329, .15);
     height: rem(36);
-    background-color: rgba(49, 51, 41, 0.15);
+    width: rem(1.5);
 }
 
 .cartBtn {
-    pointer-events: auto; // ボタン操作を有効化
     align-self: flex-end;
     display: inline-flex;
+    pointer-events: auto; // ボタン操作を有効化
 }

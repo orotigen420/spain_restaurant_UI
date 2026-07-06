@@ -2,22 +2,22 @@
 @use "../../../styles/functions" as *;
 
 .container {
-  @include main-background;
+  align-items: stretch;
   display: flex;
   flex-direction: row;
-  width: 100%;
   height: 100%;
   overflow: hidden;
-  align-items: stretch;
   position: relative;
+  width: 100%;
+  @include main-background;
 
   .mainContent {
-    flex-grow: 1;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: rem(40) rem(60);
+    flex-grow: 1;
     overflow-y: auto;
-    box-sizing: border-box;
+    padding: rem(40) rem(60);
 
     // スクロールバーをなじませる
     scrollbar-gutter: stable;
@@ -31,11 +31,11 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      margin: rem(4);
-      background-color: #ffffff;
-      border-radius: rem(10);
-      border: 4px solid transparent;
       background-clip: padding-box;
+      background-color: #fff;
+      border: 4px solid transparent;
+      border-radius: rem(10);
+      margin: rem(4);
     }
 
     &::-webkit-scrollbar-button {
@@ -44,8 +44,8 @@
 
     .menuGrid {
       display: grid;
-      grid-template-columns: repeat(3, rem(320));
       gap: rem(20); // 縦横均一な余白
+      grid-template-columns: repeat(3, rem(320));
       justify-content: center; // グリッド全体を中央寄せにする
       margin-bottom: rem(140);
     }

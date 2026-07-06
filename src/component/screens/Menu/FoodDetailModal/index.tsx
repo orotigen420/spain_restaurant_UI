@@ -74,7 +74,7 @@ function FoodDetailModal({ isOpen, onClose, foodItem, onAddToCart }: FoodDetailM
               <IconButton
                 icon={MinusSignIcon}
                 onClick={handleDecrement}
-                size="md"
+                size="lg"
                 disabled={quantity <= 1}
                 ariaLabel="数量を減らす"
               />
@@ -82,7 +82,7 @@ function FoodDetailModal({ isOpen, onClose, foodItem, onAddToCart }: FoodDetailM
               <IconButton
                 icon={PlusSignIcon}
                 onClick={handleIncrement}
-                size="md"
+                size="lg"
                 ariaLabel="数量を増やす"
               />
             </div>

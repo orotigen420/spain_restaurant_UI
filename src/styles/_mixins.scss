@@ -4,30 +4,30 @@
 
     //多く使うドットパターン背景
     @mixin main-background {
+        background-image: var(--bg-main);
+        background-position: center, center;
+        background-size: rem(26) rem(26), auto;
+        height: 100%;
         position: relative;
         width: 100%;
-        height: 100%;
-        background-image: var(--bg-main);
-        background-size: rem(26) rem(26), auto;
-        background-position: center, center;
     }
 
     @mixin modalOverlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(5, 5, 5, 0.4);
+        -webkit-backface-visibility: hidden;
+        align-items: center;
         backdrop-filter: blur(6px);
+        backface-visibility: hidden;
+        background: rgba(#050505, .4);
+        bottom: 0;
         display: flex;
         justify-content: center;
-        align-items: center;
-        z-index: 1000;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translate3d(0, 0, 0);
 
         /* チラつき（フラッシュ）防止用の設定を追加 */
         will-change: opacity, backdrop-filter;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        transform: translate3d(0, 0, 0);
+        z-index: 1000;
     }

@@ -1,33 +1,33 @@
 .iconButton {
-    border-radius: 50%;
+    align-items: center;
     background: var(--bg-secondary);
     border: solid var(--br-whiteEdge);
-    color: var(--tx-primary);
+    border-radius: 50%;
+    box-shadow: 0 rem(2) rem(3) rgba(#cac1b6, .74);
+    color: rgba(var(--tx-card-rgb), .6);
+    cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 rem(2) rem(3) rgba(202, 193, 182, 0.74);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
     outline: none;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
 
     &:active:not(:disabled) {
+        box-shadow: 0 rem(2) rem(4) rgba(#000, .05);
         transform: translateY(0);
-        box-shadow: 0 rem(2) rem(4) rgba(0, 0, 0, 0.05);
     }
 
     &:disabled {
-        opacity: 0.35;
         cursor: not-allowed;
+        opacity: .35;
     }
 
     &:active {}
 
     // サイズ別のバリアント
     &.sm {
-        width: rem(36);
-        height: rem(36);
         border-width: rem(1.5);
+        height: rem(36);
+        width: rem(36);
 
         path {
             stroke-width: rem(2.5);
@@ -35,9 +35,9 @@
     }
 
     &.md {
-        width: rem(56);
-        height: rem(56);
         border-width: rem(2);
+        height: rem(56);
+        width: rem(56);
 
         path {
             stroke-width: rem(4);
@@ -45,13 +45,13 @@
     }
 
     &.lg {
-        width: rem(72);
-        height: rem(72);
         border-width: rem(2);
+        height: rem(72);
+        width: rem(72);
 
         path {
+            stroke: rgba(var(--tx-card-rgb), .7);
             stroke-width: rem(3);
-            stroke: rgba(var(--tx-card-rgb), 0.7);
         }
     }
 }
