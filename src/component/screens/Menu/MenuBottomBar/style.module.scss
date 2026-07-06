@@ -5,11 +5,11 @@
     bottom: 0;
     left: rem(400);
     right: 0;
-    height: rem(160);
+    height: rem(140);
     // すりガラスの背景色。薄めの白グレーに馴染ませる
     background: linear-gradient(to top,
             rgba(230, 230, 224, 0.7) 0%,
-            rgba(230, 230, 224, 0.4) 60%,
+            rgba(230, 230, 224, 0.4) 20%,
             rgba(230, 230, 224, 0) 100%);
     backdrop-filter: blur(rem(2));
     -webkit-backdrop-filter: blur(rem(2));
