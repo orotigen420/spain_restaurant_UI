@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../../../uiparts/Modal';
 import CtaButton from '../../../uiparts/Button';
 import IconButton from '../../../uiparts/IconButton';
-import { MinusSignIcon, PlusSignIcon, ArrowRight01Icon } from 'hugeicons-react';
+import { MinusSignIcon, PlusSignIcon, ShoppingBasket03Icon} from 'hugeicons-react';
 import styles from './style.module.scss';
 
 
@@ -91,7 +91,13 @@ function FoodDetailModal({ isOpen, onClose, foodItem, onAddToCart }: FoodDetailM
             <CtaButton
               variant="cta"
               text="Add"
-              icon={ArrowRight01Icon}
+              icon={
+                <ShoppingBasket03Icon
+                  size={34}
+                  color="currentColor"
+                  strokeWidth={2}
+                />
+              }
               size="lg"
               onClick={handleAdd}
               layoutClass={styles.addButton}

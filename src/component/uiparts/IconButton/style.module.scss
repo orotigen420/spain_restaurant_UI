@@ -1,57 +1,62 @@
 .iconButton {
-    align-items: center;
-    background: var(--bg-secondary);
-    border: solid var(--br-whiteEdge);
-    border-radius: 50%;
-    box-shadow: 0 rem(2) rem(3) rgba(#cac1b6, .74);
-    color: rgba(var(--tx-card-rgb), .6);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    outline: none;
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: solid var(--br-whiteEdge);
+  border-radius: 50%;
+  box-shadow: 0 rem(2) rem(3) rgba(#cac1b6, 0.74);
+  color: rgba(var(--tx-card-rgb), 0.6);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  outline: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 
-    &:active:not(:disabled) {
-        box-shadow: 0 rem(2) rem(4) rgba(#000, .05);
-        transform: translateY(0);
+  &:active:not(:disabled) {
+    box-shadow: 0 rem(2) rem(4) rgba(#000, 0.05);
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+  }
+
+  &:active {
+  }
+
+  // サイズ別のバリアント
+  &.sm {
+    border-width: rem(1.5);
+    height: rem(36);
+    width: rem(36);
+
+    path {
+      stroke-width: rem(2.5);
     }
+  }
 
-    &:disabled {
-        cursor: not-allowed;
-        opacity: .35;
+  &.md {
+    border-width: rem(2);
+    height: rem(56);
+    width: rem(56);
+
+    path {
+      stroke-width: rem(3);
     }
+  }
 
-    &:active {}
+  &.lg {
+    border-width: rem(2);
+    height: rem(72);
+    width: rem(72);
 
-    // サイズ別のバリアント
-    &.sm {
-        border-width: rem(1.5);
-        height: rem(36);
-        width: rem(36);
-
-        path {
-            stroke-width: rem(2.5);
-        }
+    path {
+      stroke: rgba(var(--tx-card-rgb), 0.7);
+      stroke-width: rem(3);
     }
-
-    &.md {
-        border-width: rem(2);
-        height: rem(56);
-        width: rem(56);
-
-        path {
-            stroke-width: rem(4);
-        }
-    }
-
-    &.lg {
-        border-width: rem(2);
-        height: rem(72);
-        width: rem(72);
-
-        path {
-            stroke: rgba(var(--tx-card-rgb), .7);
-            stroke-width: rem(3);
-        }
-    }
+  }
 }

@@ -86,7 +86,7 @@
             width: rem(160);
 
             .count-number {
-                color: var(--tx-primary);
+                color: rgba(var(--tx-primary-rgb), .9);
                 font-family: var(--font-main);
                 font-size: rem(80);
                 font-variant-numeric: tabular-nums;

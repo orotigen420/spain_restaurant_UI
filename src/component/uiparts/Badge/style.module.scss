@@ -1,22 +1,22 @@
 @use "../../../styles/functions" as *;
 
 .badge {
-    align-items: center;
-    background: #111;
-    border: rem(2) solid #333;
-    border-radius: rem(28);
-    box-shadow: inset 0 4px 4px rgba(#FFF27C, .25);
-    color: rgba(#fff, .8);
-    display: flex;
-    font-family: var(--font-primary);
-    font-size: rem(24);
-    font-weight: 600;
-    height: rem(56);
-    justify-content: center;
-    min-width: rem(56);
-    padding: 0 rem(6);
-    position: absolute;
-    text-align: center;
-    vertical-align: middle;
-    z-index: 10;
+  align-items: center;
+  background: #111;
+
+  border-radius: rem(28);
+  box-shadow: inset 0 rem(4) rem(4) rgba(#fff27c, 0.25);
+  color: rgba(#fff, 0.8);
+  display: flex;
+  font-family: var(--font-primary);
+  font-size: rem(18);
+  font-weight: 600;
+  height: rem(40);
+  justify-content: center;
+  line-height: 1;
+  min-width: rem(40);
+  padding: 0 rem(6);
+  position: absolute;
+  text-align: center;
+  z-index: 10;
 }

@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { UserIcon, Search01Icon, Note01Icon, ArrowRight01Icon } from 'hugeicons-react';
+import { UserIcon, Search01Icon, Note01Icon, ShoppingBasket03Icon} from 'hugeicons-react';
 import { useApp } from '../../../../context/AppContext';
 import GlassCapsule from '../../../uiparts/GlassCapsule';
 import Button from '../../../uiparts/Button';
@@ -69,8 +69,14 @@ function MenuBottomBar({
             <div className={styles.cartBtnWrapper}>
                 <Button
                     variant="cta"
-                    text="Go to Cart"
-                    icon={ArrowRight01Icon}
+                    text="Cart"
+                    icon={
+                      <ShoppingBasket03Icon
+                        size={34}
+                        color="currentColor"
+                        strokeWidth={2}
+                      />
+                    }
                     iconPosition="right"
                     onClick={onGoToCart}
                     layoutClass={styles.cartBtn}

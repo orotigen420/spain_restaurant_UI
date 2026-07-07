@@ -1,40 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Miriam+Libre:wght@400..700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Miriam+Libre:wght@400..700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap");
 
 :root {
-  --bg-base: linear-gradient(#ecf2ef 80%, #e6e6e0);
-  --bg-buttonCTA: linear-gradient(#ff8b07 0%, #f9b339);
-  --bg-buttonSecond: linear-gradient(#FFFFFF14 0%, #E8E5DE14);
-  --bg-buttonThird: linear-gradient(#F9F9F93C 0%, #E8E5DE3C);
-  --bg-card: #e6e6e0;
-  /*背景ドットの大きさ調整*/
-  --bg-dot-size: clamp(1px, .18dvh, 2.5px);
-  --bg-main: radial-gradient(circle, var(--bg-pattern) var(--bg-dot-size), transparent var(--bg-dot-size)), var(--bg-base);
-  --bg-pattern: #80808033;
-
   /**色**/
   /*background*/
+  --bg-base: linear-gradient(#ecf2ef 80%, #e6e6e0);
+  --bg-buttonCTA: linear-gradient(#ff8b07 0%, #f9b339);
+  --bg-buttonSecond: linear-gradient(#ffffff14 0%, #e8e5de14);
+  --bg-buttonThird: linear-gradient(#f9f9f93c 0%, #e8e5de3c);
+  --bg-card: #e6e6e0;
+  --bg-dot-size: clamp(1px, 0.18dvh, 2.5px); /*背景ドットの大きさ調整*/
+  --bg-main:
+    radial-gradient(
+      circle,
+      var(--bg-pattern) var(--bg-dot-size),
+      transparent var(--bg-dot-size)
+    ),
+    var(--bg-base);
+  --bg-pattern: #80808033;
   --bg-root: #050505;
-  --bg-sideBar: #ecf2ef;
+  --bg-sideBar: #ecf2f0;
+
   /*border*/
   --br-buttonCTA: linear-gradient(#fab137 0%, #ff8e0a);
   --br-whiteEdge: #d1d2cb;
   --br-whiteWeakEdge: #e4e4e4;
+
+  /*フォント*/
   --font-button: "Albert Sans", sans-serif;
   --font-comment: "Miriam Libre", sans-serif;
   --font-japanese: "Zen Kaku Gothic New", sans-serif;
   --font-main: "Mona Sans", sans-serif;
   --font-sub: "Intel One Mono", monospace;
-
-  /*フォント*/
   --font-title: "Inconsolata", serif;
+
+  /*theme*/
   --theme-amber: #eba94c;
   --theme-cinnamon: #cf7a50;
   --theme-olive: #ab9b5c;
   --theme-sangria: #7e201e;
-  /*theme*/
   --theme-terracotta: #ac4726;
   --tx-card: #313329;
   --tx-card-rgb: 49, 51, 41;
+
   /*text*/
   --tx-primary: #36382c;
   --tx-primary-rgb: 54, 56, 44;

@@ -1,103 +1,110 @@
 .button {
-    align-items: center;
-    align-self: flex-start;
-    cursor: pointer;
-    //ボタン共通の定義
-    display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  color: rgba(var(--tx-primary-rgb), 0.95);
+  cursor: pointer;
+  //ボタン共通の定義
+  display: inline-flex;
 
-    text-decoration: none;
+  text-decoration: none;
 
-    // アニメーションのためのスムーズな変化を設定
-    transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+  // アニメーションのためのスムーズな変化を設定
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
 
-    &:active {
-        transform: translateY(2px);
-        transform: scale(.97);
-        transform-origin: bottom;
-    }
+  &:active {
+    transform: translateY(2px);
+    transform: scale(0.97);
+    transform-origin: bottom;
+  }
 
-    &.lg {
-        border-radius: rem(50);
+  &.lg {
+    border-radius: rem(50);
 
-        gap: rem(1);
-        padding: rem(28) rem(25) rem(28) rem(35);
+    gap: rem(16);
+    padding: rem(28) rem(35) rem(28) rem(35);
 
-        &[data-icon-position="left"] {
-            padding: rem(28) rem(35) rem(28) rem(23);
-        }
-
-        .word {
-            font-size: rem(32);
-        }
-
-        .icon {
-            height: rem(40);
-            width: rem(40);
-        }
-    }
-
-    &.md {
-        border-radius: rem(40);
-
-        gap: rem(4);
-        padding: rem(18) rem(24);
-
-        &[data-icon-position="left"] {
-            padding: rem(18) rem(24);
-        }
-
-        .word {
-            font-size: rem(22);
-        }
-
-        .icon {
-            height: rem(28);
-            width: rem(28);
-        }
-    }
-
-    &.sm {
-        border-radius: rem(30);
-        gap: rem(6);
-        padding: rem(14) rem(24);
-
-        .word {
-            font-family: var(--font-japanese);
-            font-size: rem(16);
-        }
-
-        .icon {
-            height: rem(20);
-            width: rem(20);
-        }
-    }
-
-    //それぞれのバリアントに合わせたスタイリング
-    &.cta {
-        background: var(--bg-buttonCTA) padding-box,
-            var(--br-buttonCTA) border-box;
-        /*borderにグラデーションをつけたいので*/
-        border: rem(5) solid transparent;
-        box-shadow: 0 3px 4px #FFFFFF44 inset;
-    }
-
-    &.secondary {
-        background: var(--bg-buttonSecond);
-        border: rem(3) solid var(--br-whiteWeakEdge);
-        box-shadow: 0 2px 3px 0 rgba(#cac1b6, .74);
+    &[data-icon-position="left"] {
+      padding: rem(28) rem(35) rem(28) rem(23);
     }
 
     .word {
-        color: var(--tx-primary);
-        font-family: var(--font-button);
-        font-weight: 600;
-        line-height: 1;
+      font-size: rem(32);
     }
 
     .icon {
-        path {
-            stroke: var(--tx-primary);
-            stroke-width: rem(2.5);
-        }
+      height: rem(40);
+      width: rem(40);
     }
+  }
+
+  &.md {
+    border-radius: rem(40);
+
+    gap: rem(4);
+    padding: rem(18) rem(24);
+
+    &[data-icon-position="left"] {
+      padding: rem(18) rem(24);
+    }
+
+    .word {
+      font-size: rem(22);
+    }
+
+    .icon {
+      height: rem(28);
+      width: rem(28);
+    }
+  }
+
+  &.sm {
+    border-radius: rem(30);
+    gap: rem(6);
+    padding: rem(14) rem(24);
+
+    .word {
+      font-family: var(--font-japanese);
+      font-size: rem(16);
+    }
+
+    .icon {
+      height: rem(20);
+      width: rem(20);
+    }
+  }
+
+  //それぞれのバリアントに合わせたスタイリング
+  &.cta {
+    background:
+      var(--bg-buttonCTA) padding-box,
+      var(--br-buttonCTA) border-box;
+    /*borderにグラデーションをつけたいので*/
+    border: rem(5) solid transparent;
+    box-shadow: 0 3px 4px #ffffff44 inset;
+  }
+
+  &.secondary {
+    background: var(--bg-buttonSecond);
+    border: rem(3) solid var(--br-whiteWeakEdge);
+    box-shadow: 0 2px 3px 0 rgba(#cac1b6, 0.74);
+  }
+
+  .word {
+    color: var(--tx-primary);
+    font-family: var(--font-button);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .icon {
+    color: var(--tx-primary);
+
+    path {
+      stroke: currentColor;
+      stroke-width: var(--icon-stroke-width, rem(2.5));
+    }
+  }
 }

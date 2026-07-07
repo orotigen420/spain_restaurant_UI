@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 import Sidebar, { type CategoryId } from './Sidebar';
 import FoodCard from '../../uiparts/FoodCard';
@@ -62,6 +63,7 @@ function sortFoodsByAvailability(foods: FoodItem[]): FoodItem[] {
 }
 
 function Menu() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<CategoryId>('all');
   const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -117,7 +119,7 @@ function Menu() {
       </main>
 
       {/* 下部ツールバー＆カートボタン（最前面フローティング） */}
-      <MenuBottomBar />
+      <MenuBottomBar onGoToCart={() => navigate('/insideCart')} />
 
       {/* 商品詳細モーダル */}
       <FoodDetailModal

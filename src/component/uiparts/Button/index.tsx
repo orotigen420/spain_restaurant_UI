@@ -10,8 +10,8 @@ interface CtaButtonProps {
     /** ボタンに表示するテキスト */
     text: string;
 
-    /** 表示するアイコン（hugeicons-react などのコンポーネント） */
-    icon?: React.ComponentType<{ size?: number; className?: string }>;
+    /** 表示するアイコン（コンポーネント、またはJSXエレメント） */
+    icon?: React.ComponentType<{ className?: string }> | React.ReactNode;
 
     /** アイコンとテキストの配置順（デフォルト: right） */
     iconPosition?: 'left' | 'right';
@@ -44,6 +44,16 @@ function CtaButton({
     ariaLabel
 }: CtaButtonProps) {
     const buttonClassName = `${styles.button} ${layoutClass || ""} ${styles[variant]} ${styles[size]}`;
+
+    const renderIcon = () => {
+        if (!Icon) return null;
+        if (React.isValidElement(Icon)) {
+            return Icon;
+        }
+        const Component = Icon as React.ComponentType<{ className?: string }>;
+        return <Component className={styles.icon} />;
+    };
+
     if (to) {
         return (
             <Link
@@ -53,9 +63,9 @@ function CtaButton({
                 onClick={onClick}
                 aria-label={ariaLabel}
             >
-                {Icon && iconPosition === 'left' && <Icon className={styles.icon} />}
+                {iconPosition === 'left' && renderIcon()}
                 <span className={styles.word}>{text}</span>
-                {Icon && iconPosition === 'right' && <Icon className={styles.icon} />}
+                {iconPosition === 'right' && renderIcon()}
             </Link>
         )
     }
@@ -66,9 +76,9 @@ function CtaButton({
             onClick={onClick}
             aria-label={ariaLabel}
         >
-            {Icon && iconPosition === 'left' && <Icon className={styles.icon} />}
+            {iconPosition === 'left' && renderIcon()}
             <span className={styles.word}>{text}</span>
-            {Icon && iconPosition === 'right' && <Icon className={styles.icon} />}
+            {iconPosition === 'right' && renderIcon()}
         </button>
     )
 }

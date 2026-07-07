@@ -1,50 +1,49 @@
 @use "../../../../styles/mixins" as *;
- 
+
 .modalContent {
   background: var(--bg-card);
   border: rem(1) solid var(--br-whiteWeakEdge);
   border-radius: rem(28);
-  box-shadow: 0 rem(24) rem(50) rgba(#000, .15);
+  box-shadow: 0 rem(24) rem(50) rgba(#000, 0.15);
   max-width: rem(820);
   overflow: hidden;
   padding: rem(44) rem(48); // 余白を広めに
   position: relative;
   width: 95%;
- 
+
   .container {
     align-items: stretch;
     color: var(--tx-card);
     display: flex;
     gap: rem(10);
- 
- 
+
     .infoColumn {
       display: flex;
       flex: 1.2;
       flex-direction: column;
       justify-content: flex-start;
       min-height: rem(280);
- 
+
       .japaneseName {
-        color: rgba(var(--tx-primary-rgb), .6);
+        color: rgba(var(--tx-primary-rgb), 0.6);
         display: block;
         font-family: var(--font-japanese);
         font-size: rem(20);
         font-weight: 500;
         margin-bottom: rem(12);
       }
- 
+
       .title {
         color: var(--tx-card);
         font-family: var(--font-main);
         font-size: rem(54);
         font-weight: 500;
-        letter-spacing: -.05em;
-        line-height: 1.0;
+        letter-spacing: -0.05em;
+        line-height: 1;
         margin-bottom: rem(10);
         word-break: break-word;
       }
- 
+
       .price {
         color: var(--tx-card);
         display: block;
@@ -53,33 +52,35 @@
         font-weight: 500;
         margin-bottom: rem(36); // 基本情報の下に大きめの隙間を作る
       }
- 
+
       .divider {
         border: none;
-        border-top: rem(1) solid rgba(var(--tx-card-rgb), .2);
+        border-top: rem(1) solid rgba(var(--tx-card-rgb), 0.2);
         margin-bottom: rem(12); // description側に近接させる
         width: 100%;
       }
- 
+
       .description {
-        color: rgba(var(--tx-card-rgb), .6);
+        color: rgba(var(--tx-card-rgb), 0.6);
         font-family: var(--font-japanese);
         font-size: rem(18);
         font-weight: 500;
         line-height: 1.6;
         margin: 0;
       }
- 
+
       .itemId {
-        color: rgba(var(--tx-primary-rgb), .4);
+        color: rgba(var(--tx-primary-rgb), 0.4);
         display: block;
         font-family: var(--font-sub);
         font-size: rem(16);
         margin-top: auto; // 行数が少ないときは自動的に左下に配置
-        padding-top: rem(40); // タイトルが長く行数が多いときに、descriptionとの間に最低限の隙間を確保
+        padding-top: rem(
+          40
+        ); // タイトルが長く行数が多いときに、descriptionとの間に最低限の隙間を確保
       }
     }
- 
+
     .actionColumn {
       align-items: flex-end; // 右下にしっかり寄せるために flex-end
       display: flex;
@@ -87,14 +88,14 @@
       flex-direction: column;
       gap: rem(24);
       justify-content: space-between;
- 
+
       .imageWrapper {
         align-items: center;
         display: flex;
         flex: 1;
         justify-content: center;
         width: 100%;
- 
+
         .image {
           height: auto;
           max-width: rem(580); // 画像サイズを拡大して配置
@@ -102,7 +103,7 @@
           width: 100%;
         }
       }
- 
+
       .controlsRow {
         align-items: flex-end; // 右下のカウンターとボタンの下端を整列
         display: flex;
@@ -110,35 +111,35 @@
         justify-content: flex-end;
         margin-top: auto;
         width: 100%;
- 
+
         @media (max-width: 768px) {
           justify-content: space-between;
           width: 100%;
         }
- 
+
         .counter {
           align-items: center;
-          background: rgba(#fff, .6);
+          background: rgba(#fff, 0.6);
           border: rem(1) solid var(--br-whiteEdge); // 統一されたボーダー変数を使用
-          border-radius: rem(9999);
-          box-shadow: inset 0 rem(2) rem(4) rgba(#000, .03);
+          border-radius: rem(100);
+          box-shadow: inset 0 rem(2) rem(4) rgba(#000, 0.03);
           display: inline-flex;
-          gap: rem(6);
+          gap: rem(3);
           height: rem(90);
           padding: rem(6) rem(12);
- 
+
           .quantity {
-            color: rgba(var(--tx-primary-rgb), .6);
+            color: rgba(var(--tx-primary-rgb), 0.6);
             font-family: var(--font-main);
-            font-size: rem(45); // カウンターの数字も拡大
+            font-size: rem(36); // カウンターの数字も拡大
             font-variant-numeric: tabular-nums;
-            font-weight: 600;
+            font-weight: 500;
             text-align: center;
             user-select: none;
             width: rem(60);
           }
         }
- 
+
         .addButton {
           align-self: center !important;
           margin: 0 !important;

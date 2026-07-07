@@ -1,90 +1,95 @@
 @use "../../../../styles/mixins" as *;
 
 .bottomContainer {
-    -webkit-backdrop-filter: blur(rem(2));
-    align-items: flex-end;
-    backdrop-filter: blur(rem(2));
-    // すりガラスの背景色。薄めの白グレーに馴染ませる
-    background: linear-gradient(to top,
-            rgba(#e6e6e0, .7) 0%,
-            rgba(#e6e6e0, .4) 20%,
-            rgba(#e6e6e0, 0) 100%);
-    bottom: 0;
-    box-sizing: border-box;
+  -webkit-backdrop-filter: blur(rem(2));
+  align-items: flex-end;
+  backdrop-filter: blur(rem(2));
+  // すりガラスの背景色。薄めの白グレーに馴染ませる
+  background: linear-gradient(
+    to top,
+    rgba(#e6e6e0, 0.7) 0%,
+    rgba(#e6e6e0, 0.4) 20%,
+    rgba(#e6e6e0, 0) 100%
+  );
+  bottom: 0;
+  box-sizing: border-box;
 
-    display: flex;
-    height: rem(140);
-    justify-content: space-between;
-    left: rem(400);
-    padding: 0 rem(30) rem(22) rem(30);
-    pointer-events: none; // 余白部分は下のメニューをスクロールできるようにする
-    position: absolute;
-    right: 0;
-    z-index: 100;
+  display: flex;
+  height: rem(140);
+  justify-content: space-between;
+  left: rem(400);
+  padding: 0 rem(30) rem(22) rem(30);
+  pointer-events: none; // 余白部分は下のメニューをスクロールできるようにする
+  position: absolute;
+  right: 0;
+  z-index: 100;
 }
 
 .leftToolbar {
-    align-items: center;
-    display: flex;
-    gap: rem(40);
-    height: rem(100);
-    padding: 0 rem(64);
-    pointer-events: auto; // ボタン操作を有効化
+  align-items: center;
+  display: flex;
+  gap: rem(40);
+  height: rem(100);
+  padding: 0 rem(64);
+  pointer-events: auto; // ボタン操作を有効化
 }
 
 .actionBtn {
-    align-items: center;
-    background: none;
-    border: none;
-    color: var(--tx-primary);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: rem(6);
-    height: 100%;
-    justify-content: center;
-    outline: none;
-    padding: 0 rem(16);
-    transition: opacity .2s ease, transform .1s ease;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--tx-primary);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: rem(6);
+  height: 100%;
+  justify-content: center;
+  outline: none;
+  padding: 0 rem(16);
+  transition:
+    opacity 0.2s ease,
+    transform 0.1s ease;
 
-    &:active {
-        opacity: .9;
-        transform: scale(.96);
-    }
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.96);
+  }
 
-    .icon {
-        color: rgba(var(--tx-primary-rgb), .9);
-        height: rem(40);
-        width: rem(40);
-    }
+  .icon {
+    color: rgba(var(--tx-primary-rgb), 0.9);
+    height: rem(40);
+    width: rem(40);
+  }
 
-    .label {
-        color: rgba(var(--tx-primary-rgb), .9);
-        font-family: var(--font-japanese);
-        font-size: rem(12);
-        font-weight: 600;
-        text-align: center;
-        white-space: nowrap;
-    }
+  .label {
+    color: rgba(var(--tx-primary-rgb), 0.9);
+    font-family: var(--font-japanese);
+    font-size: rem(12);
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 .divider {
-    background-color: rgba(#313329, .15);
-    height: rem(36);
-    width: rem(1.5);
+  background-color: rgba(#313329, 0.15);
+  height: rem(36);
+  width: rem(1.5);
 }
 
 .cartBtnWrapper {
-    align-self: flex-end;
-    pointer-events: auto;
-    position: relative;
+  align-self: flex-end;
+  pointer-events: auto;
+  position: relative;
 }
 
 .cartBtn {
-    display: inline-flex;
+  display: inline-flex;
+  width: 100%;
 }
 
 .badge {
-    right: rem(1);
-    top: rem(-30);
+  right: rem(-4);
+  top: rem(-16);
 }
