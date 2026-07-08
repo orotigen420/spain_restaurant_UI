@@ -1,4 +1,5 @@
 @use "../../../../styles/mixins" as *;
+@use "../../../../styles/functions" as *;
 
 .modalContent {
   background: var(--bg-card);
@@ -50,7 +51,7 @@
         font-family: var(--font-main);
         font-size: rem(38);
         font-weight: 500;
-        margin-bottom: rem(36); // 基本情報の下に大きめの隙間を作る
+        margin-bottom: rem(36);
       }
 
       .divider {
@@ -84,7 +85,7 @@
     .actionColumn {
       align-items: flex-end; // 右下にしっかり寄せるために flex-end
       display: flex;
-      flex: 1; // 画像エリア of 比率を大きく
+      flex: 1;
       flex-direction: column;
       gap: rem(24);
       justify-content: space-between;
@@ -94,18 +95,30 @@
         display: flex;
         flex: 1;
         justify-content: center;
+        position: relative;
         width: 100%;
+
+        &::after {
+          box-shadow: inset 0 0 15px 8px var(--bg-card);
+          content: "";
+          height: 100%;
+          left: 0;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
 
         .image {
           height: auto;
-          max-width: rem(580); // 画像サイズを拡大して配置
+          max-width: rem(580);
           object-fit: contain;
           width: 100%;
         }
       }
 
       .controlsRow {
-        align-items: flex-end; // 右下のカウンターとボタンの下端を整列
+        align-items: flex-end;
         display: flex;
         gap: rem(20);
         justify-content: flex-end;
@@ -120,18 +133,18 @@
         .counter {
           align-items: center;
           background: rgba(#fff, 0.6);
-          border: rem(1) solid var(--br-whiteEdge); // 統一されたボーダー変数を使用
+          border: rem(1) solid var(--br-whiteEdge);
           border-radius: rem(100);
           box-shadow: inset 0 rem(2) rem(4) rgba(#000, 0.03);
           display: inline-flex;
           gap: rem(3);
           height: rem(90);
-          padding: rem(6) rem(12);
+          padding: rem(12) rem(10);
 
           .quantity {
             color: rgba(var(--tx-primary-rgb), 0.6);
             font-family: var(--font-main);
-            font-size: rem(36); // カウンターの数字も拡大
+            font-size: rem(36);
             font-variant-numeric: tabular-nums;
             font-weight: 500;
             text-align: center;

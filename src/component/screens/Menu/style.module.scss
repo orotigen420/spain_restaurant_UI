@@ -2,6 +2,7 @@
 @use "../../../styles/functions" as *;
 
 .container {
+  @include main-background;
   align-items: stretch;
   display: flex;
   flex-direction: row;
@@ -9,7 +10,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  @include main-background;
 
   .mainContent {
     box-sizing: border-box;
@@ -18,8 +18,6 @@
     flex-grow: 1;
     overflow-y: auto;
     padding: rem(40) rem(60);
-
-    // スクロールバーをなじませる
     scrollbar-gutter: stable;
 
     &::-webkit-scrollbar {
@@ -44,9 +42,9 @@
 
     .menuGrid {
       display: grid;
-      gap: rem(20); // 縦横均一な余白
+      gap: rem(20);
       grid-template-columns: repeat(3, rem(320));
-      justify-content: center; // グリッド全体を中央寄せにする
+      justify-content: center;
       margin-bottom: rem(140);
     }
   }

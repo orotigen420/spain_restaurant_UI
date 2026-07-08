@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './style.module.scss';
 
 interface ModalProps {
@@ -12,28 +12,30 @@ interface ModalProps {
 }
 
 function Modal({ isOpen, onClose, className = '', contentClassName = '', children }: ModalProps) {
-    if (!isOpen) return null;
-
     return createPortal(
-        <motion.div
-            className={`${styles.overlay} ${className}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            onClick={onClose}
-        >
-            <motion.div
-                className={`${styles.modalContent} ${contentClassName}`}
-                initial={{ scale: 0.9, y: 15, opacity: 0 }}
-                animate={{ scale: 1, y: 0, opacity: 1 }}
-                exit={{ scale: 0.9, y: 15, opacity: 0 }}
-                transition={{ duration: 0.2, ease: 'easeInOut' }}
-                onClick={(e) => e.stopPropagation()} // ポップアップ内部クリック時のイベント伝播を防ぐ
-            >
-                {children}
-            </motion.div>
-        </motion.div>,
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    className={`${styles.overlay} ${className}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    onClick={onClose}
+                >
+                    <motion.div
+                        className={`${styles.modalContent} ${contentClassName}`}
+                        initial={{ scale: 0.9, y: 15, opacity: 0 }}
+                        animate={{ scale: 1, y: 0, opacity: 1 }}
+                        exit={{ scale: 0.9, y: 15, opacity: 0 }}
+                        transition={{ duration: 0.2, ease: 'easeInOut' }}
+                        onClick={(e) => e.stopPropagation()} // ポップアップ内部クリック時のイベント伝播を防ぐ
+                    >
+                        {children}
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>,
         document.body
     );
 }

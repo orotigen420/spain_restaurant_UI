@@ -8,6 +8,7 @@ import FirstView from './component/screens/FirstView';
 import SelectGuestNumber from './component/screens/SelectGuestNumber'
 import Menu from './component/screens/Menu';
 import InsideCart from './component/screens/InsideCart';
+import OrderHistory from './component/screens/OrderHistory';
 import { AppProvider } from './context/AppContext';
 
 //参考:https://zenn.dev/bloomer/articles/3a814d9f054198
@@ -53,7 +54,8 @@ const router = createBrowserRouter([
       { path: "", Component: FirstView },
       { path: "selectGuestNumber", Component: SelectGuestNumber },
       { path: "menu", Component: Menu },
-      { path: "insideCart", Component: InsideCart }
+      { path: "insideCart", Component: InsideCart },
+      { path: "orderHistory", Component: OrderHistory }
     ]
   }
 ]);

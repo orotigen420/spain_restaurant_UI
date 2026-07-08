@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
 import Modal from '../../../uiparts/Modal';
-import CtaButton from '../../../uiparts/Button';
+import Button from '../../../uiparts/Button';
 import IconButton from '../../../uiparts/IconButton';
 import { MinusSignIcon, PlusSignIcon, ShoppingBasket03Icon} from 'hugeicons-react';
+import { type FoodItem } from '../../../../types/food';
 import styles from './style.module.scss';
 
-
-interface FoodItem {
-  id: string;
-  categoryId: 'tapas' | 'paella' | 'sweets' | 'drink';
-  name: string;
-  japanese_name: string;
-  discription: string;
-  price: string;
-  image: string;
-  isSoldOut?: boolean;
-}
 
 interface FoodDetailModalProps {
   isOpen: boolean;
@@ -88,7 +78,7 @@ function FoodDetailModal({ isOpen, onClose, foodItem, onAddToCart }: FoodDetailM
             </div>
 
             {/* カート追加ボタン */}
-            <CtaButton
+            <Button
               variant="cta"
               text="Add"
               icon={

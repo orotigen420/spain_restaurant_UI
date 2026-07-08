@@ -14,6 +14,11 @@ interface AppContextType {
   removeFromCart: (id: string) => void;
   clearCart: () => void;
   totalCartQuantity: number;
+  orderPlaced: boolean;
+  setOrderPlaced: (val: boolean) => void;
+  orderHistory: CartItem[];
+  addOrderHistory: (items: CartItem[]) => void;
+  clearOrderHistory: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -21,6 +26,8 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [guestCount, setGuestCount] = useState<number>(1);
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [orderPlaced, setOrderPlaced] = useState<boolean>(false);
+  const [orderHistory, setOrderHistory] = useState<CartItem[]>([]);
 
   const addToCart = (id: string, quantity: number) => {
     setCart((prevCart) => {
@@ -52,6 +59,28 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setCart([]);
   };
 
+  const addOrderHistory = (items: CartItem[]) => {
+    setOrderHistory((prevHistory) => {
+      const newHistory = [...prevHistory];
+      items.forEach((newItem) => {
+        const existingItemIndex = newHistory.findIndex((item) => item.id === newItem.id);
+        if (existingItemIndex > -1) {
+          newHistory[existingItemIndex] = {
+            ...newHistory[existingItemIndex],
+            quantity: newHistory[existingItemIndex].quantity + newItem.quantity,
+          };
+        } else {
+          newHistory.push({ ...newItem });
+        }
+      });
+      return newHistory;
+    });
+  };
+
+  const clearOrderHistory = () => {
+    setOrderHistory([]);
+  };
+
   const totalCartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -65,6 +94,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
         removeFromCart,
         clearCart,
         totalCartQuantity,
+        orderPlaced,
+        setOrderPlaced,
+        orderHistory,
+        addOrderHistory,
+        clearOrderHistory,
       }}
     >
       {children}

@@ -1,0 +1,404 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/functions" as *;
+
+.container {
+  @include main-background;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: rem(30) rem(60);
+  position: relative;
+  width: 100%;
+
+  // ヘッダースタイル
+  .header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem(20);
+    position: relative;
+    width: 100%;
+
+    .title {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+
+      .titleEn {
+        color: rgba(var(--tx-primary-rgb), 0.9);
+        font-family: var(--font-title);
+        font-size: rem(48);
+        font-weight: 700;
+        letter-spacing: rem(1.5);
+      }
+
+      .titleJa {
+        color: rgba(var(--tx-primary-rgb), 0.6);
+        font-family: var(--font-japanese);
+        font-size: rem(16);
+        font-weight: 500;
+        margin-top: rem(2);
+      }
+    }
+  }
+
+  .mainLayout {
+    display: flex;
+    flex: 1;
+    height: calc(100% - rem(110) - rem(110));
+    justify-content: center;
+    min-height: 0;
+    position: relative;
+    width: 100%;
+
+    // 空半状態のスタイル
+    .emptyState {
+      align-items: center;
+      background-color: var(--bg-sideBar);
+      border: rem(3) solid var(--br-whiteEdge);
+      border-radius: rem(10);
+      box-shadow:
+        0 rem(16) rem(48) rgba(#313329, 0.05),
+        inset 0 rem(1) rem(2) #fff;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      justify-content: center;
+      margin: auto;
+      max-height: rem(500);
+      max-width: rem(760);
+      padding: rem(80) rem(60);
+      text-align: center;
+      width: 100%;
+
+      .emptyIconWrapper {
+        align-items: center;
+        background-color: rgba(var(--tx-primary-rgb), 0.05);
+        border-radius: 50%;
+        color: rgba(var(--tx-primary-rgb), 0.8);
+        display: flex;
+        height: rem(120);
+        justify-content: center;
+        margin-bottom: rem(24);
+        width: rem(120);
+      }
+
+      h2 {
+        color: rgba(var(--tx-primary-rgb), 0.85);
+        font-family: var(--font-japanese);
+        font-size: rem(28);
+        font-weight: 600;
+        margin-bottom: rem(12);
+      }
+
+      p {
+        color: rgba(var(--tx-primary-rgb), 0.6);
+        font-family: var(--font-japanese);
+        font-size: rem(16);
+        font-weight: 500;
+        margin-bottom: rem(32);
+      }
+    }
+
+    .receiptContentArea {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+
+      // レシートコンテナ（スクロール＋上下フェードアウトマスク担当）
+      .receiptContainer {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+        overflow-y: auto;
+        padding: rem(40) 0;
+        width: 100%;
+
+        // スクロールバー非表示
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        // mask-image で上下をフェードアウト
+        mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          black rem(40),
+          black calc(100% - rem(40)),
+          transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          black rem(40),
+          black calc(100% - rem(40)),
+          transparent 100%
+        );
+
+        // レシート用紙の背景色定義
+        $paper-color: #f6f5f0;
+        $ink-color: #272623;
+        $ink-light-color: #818181;
+
+        // レシートカード本体
+        .receiptCard {
+          background-color: $paper-color;
+          border-left: rem(1) solid rgba(#000, 0.05);
+          border-right: rem(1) solid rgba(#000, 0.05);
+          box-shadow: 0 rem(24) rem(64) rgba(#000, 0.12);
+          display: flex;
+          flex: 1 0 auto;
+          flex-direction: column;
+          margin: 0 auto;
+          max-width: rem(520);
+          padding: rem(64) rem(48);
+          position: relative;
+          width: 100%;
+
+          // 上下のジグザグエッジ
+          .zigzagTop {
+            background:
+              linear-gradient(-45deg, transparent rem(6), $paper-color rem(6)),
+              linear-gradient(45deg, transparent rem(6), $paper-color rem(6));
+            background-repeat: repeat-x;
+            background-size: rem(12) rem(12);
+            height: rem(12);
+            left: 0;
+            position: absolute;
+            top: rem(-12);
+            transform: scaleY(-1);
+            width: 100%;
+          }
+
+          .zigzagBottom {
+            background:
+              linear-gradient(-45deg, transparent rem(6), $paper-color rem(6)),
+              linear-gradient(45deg, transparent rem(6), $paper-color rem(6));
+            background-repeat: repeat-x;
+            background-size: rem(12) rem(12);
+            bottom: rem(-12);
+            height: rem(12);
+            left: 0;
+            position: absolute;
+            width: 100%;
+          }
+
+          // 店舗情報ヘッダー
+          .receiptHeader {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            .shopName {
+              color: $ink-color;
+              font-family: var(--font-title);
+              font-size: rem(48);
+              font-weight: normal;
+              letter-spacing: rem(1);
+              margin-bottom: rem(16);
+            }
+
+            .shopDetails {
+              color: $ink-light-color;
+              font-family: var(--font-japanese);
+              font-size: rem(13);
+              font-weight: 600;
+              letter-spacing: rem(2);
+              line-height: 1.5;
+              margin: 0;
+
+              p {
+                margin: 0;
+              }
+            }
+          }
+
+          // 点線区切り
+          .dashedDivider {
+            border-bottom: rem(2) dashed rgba($ink-color, 0.25);
+            margin: rem(24) 0;
+          }
+
+          // テーブル情報グリッド
+          .tableInfoGrid {
+            display: flex;
+            flex-direction: column;
+            gap: rem(12);
+
+            .infoCol {
+              display: flex;
+              justify-content: space-between;
+
+              .label {
+                color: $ink-light-color;
+                font-family: var(--font-japanese);
+                font-size: rem(13);
+                font-weight: 600;
+              }
+
+              .val {
+                color: $ink-color;
+                font-family: var(--font-receipt);
+                font-size: rem(14);
+                font-weight: 500;
+              }
+            }
+          }
+
+          // 注文明細リスト
+          .receiptItems {
+            display: flex;
+            flex-direction: column;
+            gap: rem(18);
+
+            .receiptRow {
+              align-items: flex-start;
+              display: flex;
+              justify-content: space-between;
+
+              .itemQtyCol {
+                color: $ink-color;
+                font-family: var(--font-receipt);
+                font-size: rem(14);
+                font-weight: 600;
+                width: rem(36);
+              }
+
+              .itemNameCol {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                gap: rem(2);
+                margin-right: rem(24);
+                min-width: 0;
+
+                .itemEn {
+                  color: $ink-color;
+                  font-family: var(--font-main);
+                  font-size: rem(14);
+                  font-weight: 600;
+                  line-height: 1.4;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+
+                .itemJa {
+                  color: rgba($ink-color, 0.55);
+                  font-family: var(--font-japanese);
+                  font-size: rem(11);
+                  font-weight: normal;
+                  letter-spacing: rem(0.2);
+                }
+              }
+
+              .itemPriceCol {
+                color: $ink-color;
+                font-family: var(--font-receipt);
+                font-size: rem(14);
+                font-weight: 600;
+                text-align: right;
+                width: rem(80);
+              }
+            }
+          }
+
+          // 金額総計セクション
+          .amountSection {
+            display: flex;
+            flex-direction: column;
+            gap: rem(10);
+
+            .amountRow {
+              align-items: baseline;
+              display: flex;
+              justify-content: space-between;
+
+              .totalLabel {
+                color: $ink-color;
+                font-family: var(--font-japanese);
+                font-size: rem(20);
+                font-weight: 700;
+              }
+
+              .totalValue {
+                color: $ink-color;
+                font-family: var(--font-receipt);
+                font-size: rem(32);
+                font-weight: 700;
+              }
+
+              .splitLabel {
+                color: $ink-light-color;
+                font-family: var(--font-japanese);
+                font-size: rem(16);
+              }
+
+              .splitValue {
+                color: $ink-light-color;
+                font-family: var(--font-receipt);
+                font-size: rem(24);
+                font-weight: 600;
+              }
+            }
+          }
+
+          // バーコード再現セクション
+          .barcodeSection {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: rem(24);
+
+            .barcodeContainer {
+              align-items: center;
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+
+              .barcodeLines {
+                display: flex;
+                justify-content: center;
+                margin-bottom: rem(8);
+                opacity: 0.8;
+                width: max-content;
+              }
+
+              .barcodeText {
+                color: $ink-light-color;
+                font-family: var(--font-receipt);
+                font-size: rem(11);
+                letter-spacing: rem(2);
+              }
+            }
+          }
+        }
+      }
+
+      .billBtn {
+        justify-content: center;
+        margin: rem(30) auto 0 auto;
+        width: 50%;
+      }
+    }
+  }
+
+  .backBtn {
+    bottom: rem(40);
+    left: rem(60);
+    position: absolute;
+    z-index: 10;
+  }
+}

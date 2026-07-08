@@ -2,6 +2,7 @@
 @use "../../../styles/functions" as *;
 
 .container {
+  @include main-background;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -10,319 +11,316 @@
   padding: rem(40) rem(60);
   position: relative;
   width: 100%;
-  @include main-background;
-}
 
-// ヘッダースタイル
-.header {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-bottom: rem(30);
-  position: relative;
-  width: 100%;
-
-  .title {
+  // ヘッダースタイル
+  .header {
     align-items: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    text-align: center;
+    margin-bottom: rem(30);
+    position: relative;
+    width: 100%;
 
-    .titleEn {
-      color: rgba(var(--tx-primary-rgb), 0.9);
-      font-family: var(--font-title);
-      font-size: rem(54);
-      font-weight: 700;
-      letter-spacing: rem(1.5);
-    }
-
-    .titleJa {
-      color: rgba(var(--tx-primary-rgb), 0.6);
-      font-family: var(--font-japanese);
-      font-size: rem(20);
-      font-weight: 500;
-      margin-top: rem(2);
-    }
-  }
-}
-
-// メインレイアウト
-.mainLayout {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  gap: rem(40);
-  height: calc(
-    100% - rem(110) - rem(110)
-  ); // ヘッダーと下部ボタン用の余白を十分に確保
-  min-height: 0; // スクロール可能にするために必要
-  width: 100%;
-}
-
-.backBtn {
-  bottom: rem(40);
-  left: rem(60);
-  position: absolute;
-  z-index: 10;
-}
-
-// 空白状態のスタイル
-.emptyState {
-  align-items: center;
-  background-color: var(--bg-sideBar);
-  border: rem(3) solid var(--br-whiteEdge);
-  border-radius: rem(10);
-  box-shadow:
-    0 rem(16) rem(48) rgba(#313329, 0.05),
-    inset 0 rem(1) rem(2) #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: rem(760); // 空白時は横幅を抑えてコンパクトに
-  width: 100%;
-  height: auto;
-  max-height: rem(500);
-  margin: auto; // 縦横中央寄せ
-  padding: rem(80) rem(60);
-  text-align: center;
-
-  .emptyIconWrapper {
-    align-items: center;
-    background-color: rgba(var(--tx-primary-rgb), 0.05);
-    border-radius: 50%;
-    color: rgba(var(--tx-primary-rgb), 0.8);
-    display: flex;
-    height: rem(120);
-    justify-content: center;
-    margin-bottom: rem(24);
-    width: rem(120);
-  }
-
-  h2 {
-    color: rgba(var(--tx-primary-rgb), 0.85);
-    font-family: var(--font-japanese);
-    font-size: rem(28);
-    font-weight: 600;
-    margin-bottom: rem(12);
-  }
-
-  p {
-    color: rgba(var(--tx-primary-rgb), 0.6);
-    font-family: var(--font-japanese);
-    font-size: rem(16);
-    font-weight: 500;
-    margin-bottom: rem(32);
-  }
-
-  .emptyBtn {
-    min-width: rem(200);
-  }
-}
-
-// カートのメインカードラッパー
-.cartCardWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: rem(20);
-  max-width: rem(1100);
-  width: 100%;
-  height: 100%;
-}
-
-.cartCard {
-  background-color: var(--bg-sideBar);
-  border: rem(3) solid var(--br-whiteEdge);
-  border-radius: rem(10);
-  box-shadow:
-    0 rem(16) rem(48) rgba(#313329, 0.05),
-    inset 0 rem(1) rem(2) #fff;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0; // スクロール領域を制限するために必要
-  padding: rem(36) rem(40);
-}
-
-// テーブルヘッダーの列位置合わせ
-.tableHeader {
-  display: flex;
-  align-items: center;
-  border-bottom: rem(2) solid var(--br-whiteEdge);
-  margin-bottom: rem(12);
-  padding: 0 rem(12) rem(12) rem(12);
-  width: 100%;
-
-  span {
-    color: rgba(var(--tx-primary-rgb), 0.5);
-    font-family: var(--font-japanese);
-    font-size: rem(14);
-    font-weight: 600;
-  }
-
-  .thProduct {
-    flex: 1;
-    text-align: left;
-  }
-
-  .thQuantity {
-    width: rem(160);
-    text-align: center;
-  }
-
-  .thPrice {
-    width: rem(180);
-    text-align: right;
-  }
-}
-
-// カート商品リスト
-.itemList {
-  flex: 1;
-  overflow-y: auto;
-
-  // スクロールバー
-  scrollbar-gutter: stable;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--br-whiteEdge);
-    border-radius: rem(4);
-  }
-}
-
-// 各商品行スタイル（カード背景を使わず、シンプルな線区切りに）
-.itemRow {
-  align-items: center;
-  display: flex;
-  padding-top: rem(16);
-  border-bottom: rem(1) solid rgba(var(--tx-primary-rgb), 0.08);
-  transition: background-color 0.2s ease;
-
-  &:last-child {
-    border-bottom: none;
-  }
-
-  .itemImgWrapper {
-    border-radius: 50%; // 丸型画像
-    border: rem(2) solid var(--br-whiteEdge);
-    flex-shrink: 0;
-    height: rem(70);
-    overflow: hidden;
-    width: rem(70);
-
-    .itemImg {
-      height: 100%;
-      object-fit: cover;
-      width: 100%;
-    }
-  }
-
-  .itemInfo {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-left: rem(24);
-    min-width: 0; // テキスト省略用
-
-    .itemEnName {
-      color: var(--tx-primary);
-      font-family: var(--font-main);
-      font-size: rem(25);
-      font-weight: 500;
-      margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .itemJaName {
-      color: rgba(var(--tx-primary-rgb), 0.5);
-      font-family: var(--font-japanese);
-      font-size: rem(13);
-      margin-top: rem(2);
-      text-transform: uppercase;
-      letter-spacing: rem(0.5);
-    }
-  }
-
-  .quantityControls {
-    align-items: center;
-    background-color: rgba(#fff, 0.6);
-    border: rem(2) solid var(--br-whiteEdge);
-    border-radius: rem(60);
-    display: flex;
-    gap: rem(0);
-    padding: rem(8) rem(8);
-    width: rem(180);
-    justify-content: space-between;
-
-    .itemQuantity {
-      color: rgba(var(--tx-primary-rgb), 0.6);
-      font-family: var(--font-main);
-      font-size: rem(25);
-      font-weight: 600;
+    .title {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
+
+      .titleEn {
+        color: rgba(var(--tx-primary-rgb), 0.9);
+        font-family: var(--font-title);
+        font-size: rem(54);
+        font-weight: 700;
+        letter-spacing: rem(1.5);
+      }
+
+      .titleJa {
+        color: rgba(var(--tx-primary-rgb), 0.6);
+        font-family: var(--font-japanese);
+        font-size: rem(20);
+        font-weight: 500;
+        margin-top: rem(2);
+      }
     }
   }
 
-  .priceAndAction {
-    align-items: center;
+  // メインレイアウト
+  .mainLayout {
     display: flex;
-    gap: rem(16);
-    justify-content: flex-end;
-    width: rem(180);
+    flex: 1;
+    gap: rem(40);
+    height: calc(100% - rem(110) - rem(110));
+    justify-content: center;
+    min-height: 0;
+    width: 100%;
 
-    .itemTotalPrice {
-      color: var(--tx-primary);
-      font-family: var(--font-main);
-      font-size: rem(30);
-      font-weight: 500;
-      text-align: right;
-      min-width: rem(90);
+    .emptyState {
+      align-items: center;
+      background-color: var(--bg-sideBar);
+      border: rem(3) solid var(--br-whiteEdge);
+      border-radius: rem(10);
+      box-shadow:
+        0 rem(16) rem(48) rgba(#313329, 0.05),
+        inset 0 rem(1) rem(2) #fff;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      justify-content: center;
+      margin: auto;
+      max-height: rem(500);
+      max-width: rem(760);
+      padding: rem(80) rem(60);
+      text-align: center;
+      width: 100%;
+
+      .emptyIconWrapper {
+        align-items: center;
+        background-color: rgba(var(--tx-primary-rgb), 0.05);
+        border-radius: 50%;
+        color: rgba(var(--tx-primary-rgb), 0.8);
+        display: flex;
+        height: rem(120);
+        justify-content: center;
+        margin-bottom: rem(24);
+        width: rem(120);
+      }
+
+      h2 {
+        color: rgba(var(--tx-primary-rgb), 0.85);
+        font-family: var(--font-japanese);
+        font-size: rem(28);
+        font-weight: 600;
+        margin-bottom: rem(12);
+      }
+
+      p {
+        color: rgba(var(--tx-primary-rgb), 0.6);
+        font-family: var(--font-japanese);
+        font-size: rem(16);
+        font-weight: 500;
+        margin-bottom: rem(32);
+      }
+
+      .emptyBtn {
+        min-width: rem(200);
+      }
+    }
+
+    // カートのメインカードラッパー
+    .cartCardWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: rem(20);
+      height: 100%;
+      max-width: rem(1100);
+      width: 100%;
+
+      .cartCard {
+        background-color: var(--bg-sideBar);
+        border: rem(3) solid var(--br-whiteEdge);
+        border-radius: rem(10);
+        box-shadow:
+          0 rem(16) rem(48) rgba(#313329, 0.05),
+          inset 0 rem(1) rem(2) #fff;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+        padding: rem(36) rem(40);
+
+        // テーブルヘッダーの列位置合わせ
+        .tableHeader {
+          align-items: center;
+          border-bottom: rem(2) solid var(--br-whiteEdge);
+          display: flex;
+          margin-bottom: rem(12);
+          padding: 0 rem(12) rem(12) rem(12);
+          width: 100%;
+
+          span {
+            color: rgba(var(--tx-primary-rgb), 0.5);
+            font-family: var(--font-japanese);
+            font-size: rem(16);
+            font-weight: 600;
+          }
+
+          .thProduct {
+            flex: 1;
+            text-align: left;
+          }
+
+          .thQuantity {
+            text-align: center;
+            width: rem(180);
+          }
+
+          .thPrice {
+            text-align: right;
+            width: rem(180);
+          }
+        }
+
+        // カート商品リスト
+        .itemList {
+          flex: 1;
+          overflow-y: auto;
+
+          // スクロールバー
+          scrollbar-gutter: stable;
+
+          &::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: var(--br-whiteEdge);
+            border-radius: rem(4);
+          }
+
+          // 各商品行スタイル（カード背景を使わず、シンプルな線区切りに）
+          .itemRow {
+            align-items: center;
+            border-bottom: rem(1) solid rgba(var(--tx-primary-rgb), 0.08);
+            display: flex;
+            padding-top: rem(16);
+            border-bottom: rem(1) solid rgba(var(--tx-primary-rgb), 0.08);
+            transition: background-color 0.2s ease;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            .itemImgWrapper {
+              border: rem(2) solid var(--br-whiteEdge);
+              border-radius: 50%;
+              flex-shrink: 0;
+              height: rem(100);
+              overflow: hidden;
+              width: rem(100);
+
+              .itemImg {
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+              }
+            }
+
+            .itemInfo {
+              display: flex;
+              flex-grow: 1;
+              flex-direction: column;
+              margin-left: rem(24);
+              min-width: 0;
+
+              .itemEnName {
+                color: var(--tx-primary);
+                font-family: var(--font-main);
+                font-size: rem(25);
+                font-weight: 500;
+                margin: 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+
+              .itemJaName {
+                color: rgba(var(--tx-primary-rgb), 0.5);
+                font-family: var(--font-japanese);
+                font-size: rem(13);
+                letter-spacing: rem(0.5);
+                margin-top: rem(2);
+                text-transform: uppercase;
+              }
+            }
+
+            .quantityControls {
+              align-items: center;
+              background-color: rgba(#fff, 0.6);
+              border: rem(2) solid var(--br-whiteEdge);
+              border-radius: rem(60);
+              display: flex;
+              gap: rem(0);
+              justify-content: space-between;
+              padding: rem(8) rem(8);
+              width: rem(180);
+
+              .itemQuantity {
+                color: rgba(var(--tx-primary-rgb), 0.6);
+                font-family: var(--font-main);
+                font-size: rem(25);
+                font-weight: 600;
+                text-align: center;
+              }
+            }
+
+            .priceAndAction {
+              align-items: center;
+              display: flex;
+              gap: rem(16);
+              justify-content: flex-end;
+              width: rem(180);
+
+              .itemTotalPrice {
+                color: var(--tx-primary);
+                font-family: var(--font-main);
+                font-size: rem(30);
+                font-weight: 500;
+                min-width: rem(90);
+                text-align: right;
+              }
+            }
+          }
+        }
+
+        // 共通区切り線
+        .summaryDivider {
+          background-color: var(--br-whiteEdge);
+          height: rem(2);
+          margin: rem(18) 0;
+          width: 100%;
+        }
+
+        // 合計表示行
+        .totalRow {
+          align-items: baseline;
+          display: flex;
+          justify-content: space-between;
+          padding: 0 rem(12);
+          width: 100%;
+
+          .totalLabel {
+            font-family: var(--font-japanese);
+            font-size: rem(24);
+            font-weight: 600;
+          }
+
+          .totalPrice {
+            font-family: var(--font-main);
+            font-size: rem(40);
+            font-weight: 600;
+            letter-spacing: rem(-0.5);
+          }
+        }
+      }
+
+      .orderBtn {
+        justify-content: center;
+        margin: 0 auto;
+        width: 50%;
+      }
     }
   }
-}
 
-// 共通区切り線
-.summaryDivider {
-  background-color: var(--br-whiteEdge);
-  height: rem(2);
-  margin: rem(18) 0;
-  width: 100%;
-}
-
-// 合計表示行
-.totalRow {
-  align-items: baseline;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 rem(12);
-  width: 100%;
-
-  .totalLabel {
-    font-family: var(--font-japanese);
-    font-size: rem(24);
-    font-weight: 600;
+  .backBtn {
+    bottom: rem(40);
+    left: rem(60);
+    position: absolute;
+    z-index: 10;
   }
-
-  .totalPrice {
-    font-family: var(--font-main);
-    font-size: rem(40);
-    font-weight: 600;
-    letter-spacing: rem(-0.5);
-  }
-}
-
-.orderBtn {
-  width: 50%;
-  margin: 0 auto;
-  justify-content: center;
 }

@@ -2,32 +2,22 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../../../context/AppContext';
 import foodItemsRaw from '../../../data/foodItems.json';
+import { type FoodItem } from '../../../types/food';
 import styles from './style.module.scss';
 import Button from '../../uiparts/Button';
 import IconButton from '../../uiparts/IconButton';
-import { 
-  ArrowLeft01Icon, 
-  ArrowRight01Icon, 
-  MinusSignIcon, 
-  PlusSignIcon, 
+import {
+  ArrowLeft01Icon,
+  ArrowRight01Icon,
+  MinusSignIcon,
+  PlusSignIcon,
   ShoppingBasket03Icon
 } from 'hugeicons-react';
-
-interface FoodItem {
-  id: string;
-  categoryId: 'tapas' | 'paella' | 'sweets' | 'drink';
-  name: string;
-  japanese_name: string;
-  discription: string;
-  price: string;
-  image: string;
-  isSoldOut?: boolean;
-}
 
 const FOOD_ITEMS = foodItemsRaw as FoodItem[];
 
 function InsideCart() {
-  const { cart, updateCartQuantity, removeFromCart, clearCart } = useApp();
+  const { cart, updateCartQuantity, removeFromCart, clearCart, setOrderPlaced, addOrderHistory } = useApp();
   const navigate = useNavigate();
 
 
@@ -67,8 +57,10 @@ function InsideCart() {
   };
 
   const handlePlaceOrder = () => {
-    clearCart();
+    addOrderHistory(cart);
+    setOrderPlaced(true);
     navigate('/menu');
+    clearCart();
   };
 
   return (
@@ -101,7 +93,7 @@ function InsideCart() {
                 <span className={styles.thQuantity}>個数</span>
                 <span className={styles.thPrice}>価格</span>
               </div>
-              
+
               <div className={styles.itemList}>
                 {cartWithDetails.map((item) => (
                   <div key={item.id} className={styles.itemRow}>

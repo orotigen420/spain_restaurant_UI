@@ -1,13 +1,15 @@
 @use "../../../styles/mixins" as *;
+@use "../../../styles/functions" as *;
 
 .capsule {
-    align-items: center;
-    background-color: rgba(#fff, .7);
-    border: rem(3) solid var(--br-whiteEdge);
-    border-radius: rem(100);
-    box-shadow: 0 rem(8) rem(24) rgba(#313329, .08),
-        inset 0 rem(1) rem(2) rgba(#fff, .4);
-    box-sizing: border-box;
-    display: inline-flex;
-    overflow: hidden;
+  align-items: center;
+  background-color: rgba(#fff, 0.7);
+  border: rem(3) solid var(--br-whiteEdge);
+  border-radius: rem(100);
+  box-shadow:
+    0 rem(8) rem(24) rgba(#313329, 0.08),
+    inset 0 rem(1) rem(2) rgba(#fff, 0.4);
+  box-sizing: border-box;
+  display: inline-flex;
+  overflow: hidden;
 }

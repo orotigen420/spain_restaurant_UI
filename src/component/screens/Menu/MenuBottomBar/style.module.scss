@@ -1,10 +1,9 @@
 @use "../../../../styles/mixins" as *;
+@use "../../../../styles/functions" as *;
 
 .bottomContainer {
-  -webkit-backdrop-filter: blur(rem(2));
   align-items: flex-end;
   backdrop-filter: blur(rem(2));
-  // すりガラスの背景色。薄めの白グレーに馴染ませる
   background: linear-gradient(
     to top,
     rgba(#e6e6e0, 0.7) 0%,
@@ -13,15 +12,15 @@
   );
   bottom: 0;
   box-sizing: border-box;
-
   display: flex;
   height: rem(140);
   justify-content: space-between;
   left: rem(400);
   padding: 0 rem(30) rem(22) rem(30);
-  pointer-events: none; // 余白部分は下のメニューをスクロールできるようにする
+  pointer-events: none;
   position: absolute;
   right: 0;
+  -webkit-backdrop-filter: blur(rem(2));
   z-index: 100;
 }
 
@@ -31,7 +30,7 @@
   gap: rem(40);
   height: rem(100);
   padding: 0 rem(64);
-  pointer-events: auto; // ボタン操作を有効化
+  pointer-events: auto;
 }
 
 .actionBtn {

@@ -1,25 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 import Sidebar, { type CategoryId } from './Sidebar';
 import FoodCard from '../../uiparts/FoodCard';
 import MenuBottomBar from './MenuBottomBar';
 import FoodDetailModal from './FoodDetailModal';
+import OrderSuccessModal from './OrderSuccessModal';
+import StaffCallModal from './StaffCallModal';
 import styles from './style.module.scss';
 
 import { useApp } from '../../../context/AppContext';
+import { type FoodItem } from '../../../types/food';
 import foodItemsRaw from '../../../data/foodItems.json';
-
-interface FoodItem {
-  id: string;
-  categoryId: 'tapas' | 'paella' | 'sweets' | 'drink';
-  name: string;
-  japanese_name: string;
-  discription: string;
-  price: string;
-  image: string;
-  isSoldOut?: boolean;
-}
 
 const FOOD_ITEMS = foodItemsRaw as FoodItem[];
 
@@ -38,16 +30,16 @@ const containerVariants = {
 const itemVariants = {
   hidden: {
     opacity: 0,
-    y: 24,
-    scale: 0.96
+    y: 25,
+    // scale: 0.9
   },
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
+    // scale: 1,
     transition: {
       type: 'spring',
-      stiffness: 100,
+      stiffness: 200,
       damping: 14,
     },
   },
@@ -67,7 +59,17 @@ function Menu() {
   const [activeCategory, setActiveCategory] = useState<CategoryId>('all');
   const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { addToCart } = useApp();
+  const [isStaffModalOpen, setIsStaffModalOpen] = useState(false);
+  const { addToCart, orderPlaced, setOrderPlaced } = useApp();
+
+  useEffect(() => {
+    if (orderPlaced) {
+      const timer = setTimeout(() => {
+        setOrderPlaced(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [orderPlaced, setOrderPlaced]);
 
   const filteredFoods = sortFoodsByAvailability(
     // カテゴリーによるフィルタリングと在庫状況による並べ替え
@@ -83,6 +85,13 @@ function Menu() {
 
   const handleAddToCart = (food: FoodItem, quantity: number) => {
     addToCart(food.id, quantity);
+  };
+
+  const handleCallStaff = () => {
+    setIsStaffModalOpen(true);
+    setTimeout(() => {
+      setIsStaffModalOpen(false);
+    }, 2000);
   };
 
   return (
@@ -119,7 +128,11 @@ function Menu() {
       </main>
 
       {/* 下部ツールバー＆カートボタン（最前面フローティング） */}
-      <MenuBottomBar onGoToCart={() => navigate('/insideCart')} />
+      <MenuBottomBar
+        onGoToCart={() => navigate('/insideCart')}
+        onViewHistory={() => navigate('/orderHistory')}
+        onCallStaff={handleCallStaff}
+      />
 
       {/* 商品詳細モーダル */}
       <FoodDetailModal
@@ -127,6 +140,15 @@ function Menu() {
         onClose={() => setIsModalOpen(false)}
         foodItem={selectedFood}
         onAddToCart={handleAddToCart}
+      />
+
+      {/* 注文完了お知らせモーダル */}
+      <OrderSuccessModal isOpen={orderPlaced} />
+
+      {/* 店員呼び出し完了モーダル */}
+      <StaffCallModal
+        isOpen={isStaffModalOpen}
+        onClose={() => setIsStaffModalOpen(false)}
       />
     </div>
   );

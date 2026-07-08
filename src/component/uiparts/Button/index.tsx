@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import styles from "./style.module.scss";
 
 // propsの定義
-interface CtaButtonProps {
+interface ButtonProps {
     /** ボタンの見た目バリアント（メインの黄色グラデーション / 二次アクション用） */
     variant: 'cta' | 'secondary';
 
@@ -32,7 +32,7 @@ interface CtaButtonProps {
     ariaLabel?: string;
 }
 
-function CtaButton({
+function Button({
     variant,
     text,
     icon: Icon,
@@ -42,7 +42,7 @@ function CtaButton({
     to,
     size = 'lg',
     ariaLabel
-}: CtaButtonProps) {
+}: ButtonProps) {
     const buttonClassName = `${styles.button} ${layoutClass || ""} ${styles[variant]} ${styles[size]}`;
 
     const renderIcon = () => {
@@ -83,4 +83,4 @@ function CtaButton({
     )
 }
 
-export default CtaButton;
+export default Button;

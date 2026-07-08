@@ -1,3 +1,5 @@
+@use "../../../styles/functions" as *;
+
 .iconButton {
   align-items: center;
   background: var(--bg-secondary);
@@ -23,9 +25,6 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 0.35;
-  }
-
-  &:active {
   }
 
   // サイズ別のバリアント

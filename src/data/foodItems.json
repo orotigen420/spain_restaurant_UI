@@ -6,16 +6,16 @@
     "japanese_name": "シーフードパエリア",
     "discription": "新鮮な海老、イカ、アサリなどを贅沢に使用し、魚介の旨味をお米にたっぷりと吸わせた王道のシーフードパエリアです。",
     "price": "¥1,500",
-    "image": "/img/paella1.png"
+    "image": "/img/paella01.png"
   },
   {
     "id": "1002",
     "categoryId": "paella",
-    "name": "Paella Valenciana Special",
-    "japanese_name": "バレンシア風スペシャルパエリア",
-    "discription": "パエリア発祥の地バレンシアの伝統的なレシピ。鶏肉やウサギ肉、インゲン豆を使い、ローズマリーが香る本格的な一皿です。",
+    "name": "Paella Mixta",
+    "japanese_name": "パエージャ・ミクスタ",
+    "discription": "海老やアサリなどの魚介と、鶏肉やソーセージを一緒に楽しめる人気のミックスパエリア。魚介と肉の旨味が溶け込んだ、ボリューム満点で満足感のある一皿です。",
     "price": "¥1,600",
-    "image": "/img/paella1.png"
+    "image": "/img/paella02.png"
   },
   {
     "id": "1003",
@@ -24,8 +24,7 @@
     "japanese_name": "イカスミの黒パエリア",
     "discription": "イカの旨味とコク深いイカスミを贅沢に使用し、真っ黒に炊き上げたパエリア。アイオリソース（にんにくマヨネーズ）との相性が抜群です。",
     "price": "¥1,700",
-    "image": "/img/paella1.png",
-    "isSoldOut": true
+    "image": "/img/paella03.png"
   },
   {
     "id": "1004",
@@ -34,7 +33,8 @@
     "japanese_name": "季節野菜のパエリア",
     "discription": "パプリカ、アーティチョーク、インゲンなど、色鮮やかな季節の野菜をふんだんに使用した、ヘルシーで素材の甘みが引き立つパエリアです。",
     "price": "¥1,400",
-    "image": "/img/paella1.png"
+    "image": "/img/paella04.png",
+    "isSoldOut": true
   },
   {
     "id": "1005",
@@ -43,7 +43,7 @@
     "japanese_name": "鶏肉とキノコのパエリア",
     "discription": "ジューシーな鶏肉と風味豊かな数種類のキノコを合わせ、山の幸の旨味を凝縮させてじっくり炊き上げました。",
     "price": "¥1,500",
-    "image": "/img/paella1.png"
+    "image": "/img/paella05.png"
   },
   {
     "id": "1006",
@@ -52,7 +52,7 @@
     "japanese_name": "デラックス・ミックスパエリア",
     "discription": "新鮮な海の幸とジューシーな山の幸（鶏肉・豚肉）を一度に味わえる、豪華で大満足のミックスパエリアです。",
     "price": "¥1,800",
-    "image": "/img/paella1.png"
+    "image": "/img/paella06.png"
   },
   {
     "id": "0001",
@@ -61,7 +61,7 @@
     "japanese_name": "最高級イベリコ豚の生ハム",
     "discription": "ドングリを食べて育った最高ランクのイベリコ豚を使用。口の中でとろける脂の甘みと、深いコクが特徴の極上生ハムです。",
     "price": "¥1,200",
-    "image": "/img/paella1.png"
+    "image": "/img/tapas01.png"
   },
   {
     "id": "0002",
@@ -70,7 +70,7 @@
     "japanese_name": "定番ポテトのブラバスソースがけ",
     "discription": "外はカリッと、中はホクホクに揚げたポテトに、ピリ辛のブラバスソースと濃厚なアイオリソースをかけたバル定番のおつまみです。",
     "price": "¥600",
-    "image": "/img/paella1.png",
+    "image": "/img/tapas02.png",
     "isSoldOut": true
   },
   {
@@ -80,7 +80,7 @@
     "japanese_name": "ぷりぷり海老のアヒージョ",
     "discription": "ガーリックとオリーブオイルでグツグツと煮込んだぷりぷりの海老。ピリッとした辛みがアクセントで、バゲットが進む一品です。",
     "price": "¥900",
-    "image": "/img/paella1.png"
+    "image": "/img/tapas03.png"
   },
   {
     "id": "0004",
@@ -89,7 +89,7 @@
     "japanese_name": "スペイン風オムレツ",
     "discription": "ジャガイモと玉ねぎがぎっしりと詰まった、スペインの家庭料理の代表格。ふっくらと焼き上げた優しい味わいの厚焼き卵です。",
     "price": "¥700",
-    "image": "/img/paella1.png"
+    "image": "/img/tapas04.png"
   },
   {
     "id": "0005",
@@ -98,7 +98,7 @@
     "japanese_name": "生ハムのクリームコロッケ",
     "discription": "イベリコ生ハムの旨味が溶け込んだとろ〜り濃厚なベシャメルソースを、サクサクの衣で包んだひとくちコロッケです。",
     "price": "¥650",
-    "image": "/img/paella1.png"
+    "image": "/img/tapas05.png"
   },
   {
     "id": "0006",
@@ -107,87 +107,105 @@
     "japanese_name": "スペイン風イカリング揚げ",
     "discription": "新鮮なイカをサクサクで軽い衣で揚げたフリット。レモンをたっぷりとしぼってお召し上がりください。",
     "price": "¥850",
-    "image": "/img/paella1.png"
+    "image": "/img/tapas06.png"
+  },
+  {
+    "id": "0007",
+    "categoryId": "tapas",
+    "name": "Aceitunas",
+    "japanese_name": "オリーブのマリネ",
+    "discription": "ハーブとガーリック、オリーブオイルでじっくりマリネした、スペイン産オリーブの盛り合わせ。おつまみに最適です。",
+    "price": "¥450",
+    "image": "/img/tapas07.png"
   },
   {
     "id": "2001",
-    "categoryId": "sweets",
-    "name": "Crema Catalana Caramel",
-    "japanese_name": "クレマ・カタラーナ",
-    "discription": "カスタードの上にパリパリのカラメルをのせた、カタルーニャ地方の伝統デザート。濃厚でなめらかな舌触りです。",
-    "price": "¥500",
-    "image": "/img/paella1.png"
-  },
-  {
-    "id": "2002",
-    "categoryId": "sweets",
-    "name": "Churros con Chocolate",
-    "japanese_name": "チュロスと温かいチョコレート",
-    "discription": "揚げたてサクサクのチュロスを、濃厚な温かいチョコレートソースにたっぷりとディップして楽しむスペインの定番スイーツです。",
-    "price": "¥600",
-    "image": "/img/paella1.png"
-  },
-  {
-    "id": "2003",
-    "categoryId": "sweets",
-    "name": "Tarta de Queso Vasca",
-    "japanese_name": "バスクチーズケーキ",
-    "discription": "表面を黒く焦がすことで香ばしさをプラスし、中はしっとり濃厚でクリーミーに仕上げた大人気のチーズケーキです。",
-    "price": "¥650",
-    "image": "/img/paella1.png"
-  },
-  {
-    "id": "2004",
-    "categoryId": "sweets",
-    "name": "Flan Casero con Nata",
-    "japanese_name": "自家製プリンと生クリーム",
-    "discription": "卵のコクをしっかりと感じられる少し固めの自家製プリン。ほろ苦いカラメルソースとたっぷりの生クリームを添えて。",
-    "price": "¥480",
-    "image": "/img/paella1.png"
-  },
-  {
-    "id": "3001",
     "categoryId": "drink",
     "name": "Sangria Tradicional",
     "japanese_name": "自家製伝統サングリア",
     "discription": "赤ワインにオレンジやリンゴなどのフルーツ、シナモンを漬け込んだ、フルーティーで飲みやすい自家製のサングリアです。",
     "price": "¥700",
-    "image": "/img/paella1.png"
+    "image": "/img/drink01.png"
   },
   {
-    "id": "3002",
+    "id": "2002",
     "categoryId": "drink",
     "name": "Cerveza Alhambra Especial",
     "japanese_name": "アルハンブラ・エスペシャル",
     "discription": "スペイン南部グラナダ産の本格プレミアムラガービール。ホップの華やかな香りと、すっきりとしたコクが特徴です。",
     "price": "¥650",
-    "image": "/img/paella1.png"
+    "image": "/img/drink02.png"
   },
   {
-    "id": "3003",
+    "id": "2003",
     "categoryId": "drink",
     "name": "Café con Leche",
     "japanese_name": "カフェ・コン・レチェ=",
     "discription": "深煎りのエスプレッソに温かいミルクをたっぷり注いだ、スペイン流のまろやかでコクのあるカフェオレです。",
     "price": "¥450",
-    "image": "/img/paella1.png"
+    "image": "/img/drink03.png"
   },
   {
-    "id": "3004",
+    "id": "2004",
     "categoryId": "drink",
     "name": "Tinto de Verano",
     "japanese_name": "ティント・デ・ベラーノ=",
     "discription": "赤ワインを炭酸レモンソーダで割った、スペインの夏に欠かせない爽やかでカジュアルなワインカクテルです。",
     "price": "¥600",
-    "image": "/img/paella1.png"
+    "image": "/img/drink04.png"
   },
   {
-    "id": "3005",
+    "id": "2005",
     "categoryId": "drink",
     "name": "Zumo de Naranja Natural",
     "japanese_name": "生しぼりオレンジジュース",
     "discription": "オーダーを受けてからオレンジを丸ごと贅沢にしぼった、フレッシュでみずみずしい100%天然果汁のジュースです。",
     "price": "¥550",
-    "image": "/img/paella1.png"
+    "image": "/img/drink05.png"
+  },
+  {
+    "id": "2006",
+    "categoryId": "drink",
+    "name": "Horchata de Chufa",
+    "japanese_name": "オルチャタ",
+    "discription": "バレンシア伝統のタイガーナッツ（キハマスゲ）を使用したドリンク。独特の香ばしさと優しい甘み、すっきりとした後味がクセになる健康的な乳白色の飲み物です。",
+    "price": "¥500",
+    "image": "/img/drink06.png"
+  },
+  {
+    "id": "3001",
+    "categoryId": "sweets",
+    "name": "Crema Catalana Caramel",
+    "japanese_name": "クレマ・カタラーナ",
+    "discription": "カスタードの上にパリパリのカラメルをのせた、カタルーニャ地方の伝統デザート。濃厚でなめらかな舌触りです。",
+    "price": "¥500",
+    "image": "/img/sweets01.png"
+  },
+  {
+    "id": "3002",
+    "categoryId": "sweets",
+    "name": "Churros con Chocolate",
+    "japanese_name": "チュロスと温かいチョコレート",
+    "discription": "揚げたてサクサクのチュロスを、濃厚な温かいチョコレートソースにたっぷりとディップして楽しむスペインの定番スイーツです。",
+    "price": "¥600",
+    "image": "/img/sweets02.png"
+  },
+  {
+    "id": "3003",
+    "categoryId": "sweets",
+    "name": "Tarta de Queso Vasca",
+    "japanese_name": "バスクチーズケーキ",
+    "discription": "表面を黒く焦がすことで香ばしさをプラスし、中はしっとり濃厚でクリーミーに仕上げた大人気のチーズケーキです。",
+    "price": "¥650",
+    "image": "/img/sweets03.png"
+  },
+  {
+    "id": "3004",
+    "categoryId": "sweets",
+    "name": "Flan Casero con Nata",
+    "japanese_name": "自家製プリンと生クリーム",
+    "discription": "卵のコクをしっかりと感じられる少し固めの自家製プリン。ほろ苦いカラメルソースとたっぷりの生クリームを添えて。",
+    "price": "¥480",
+    "image": "/img/sweets04.png"
   }
 ]

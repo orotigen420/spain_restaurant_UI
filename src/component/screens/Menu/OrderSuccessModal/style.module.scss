@@ -1,0 +1,52 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/functions" as *;
+
+.overlay {
+  @include modalOverlay;
+
+  .card {
+    align-items: center;
+    background: var(--bg-card);
+    border: rem(1) solid var(--br-whiteWeakEdge);
+    border-radius: rem(28);
+    box-shadow: 0 rem(24) rem(50) rgba(#000, 0.15);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: rem(500);
+    padding: rem(64) rem(48);
+    text-align: center;
+    width: 90%;
+
+    .iconWrapper {
+      align-items: center;
+      background: var(--tx-card);
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      height: rem(80);
+      justify-content: center;
+      margin-bottom: rem(24);
+      width: rem(80);
+    }
+
+    .successTitle {
+      color: var(--tx-card);
+      font-family: var(--font-main);
+      font-size: rem(36);
+      font-weight: 600;
+      letter-spacing: rem(1);
+      margin: 0 0 rem(12) 0;
+    }
+
+    .successMessage {
+      color: rgba(var(--tx-card-rgb), 0.7);
+      font-family: var(--font-japanese);
+      font-size: rem(16);
+      font-weight: 500;
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+}

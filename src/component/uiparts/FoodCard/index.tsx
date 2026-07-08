@@ -24,7 +24,9 @@ function FoodCard({ id, name, price, image, isSoldOut = false, onClick }: FoodCa
                 <span className={styles.priceText}>{price}</span>
             </div>
             <div className={styles.bottomContent}>
-                <img src={image} alt={name} className={styles.foodImage} />
+                <div className={styles.imageWrapper}>
+                    <img src={image} alt={name} className={styles.foodImage} />
+                </div>
                 <div className={styles.idSec}>
                     <span>Item ID:</span>
                     <span>{id}</span>

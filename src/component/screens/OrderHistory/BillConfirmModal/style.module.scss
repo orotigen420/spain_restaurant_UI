@@ -1,0 +1,97 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/functions" as *;
+
+.billModal {
+  align-items: center;
+  background: var(--bg-card);
+  border: rem(1) solid var(--br-whiteWeakEdge);
+  border-radius: rem(28);
+  box-shadow: 0 rem(24) rem(50) rgba(#000, 0.15);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: rem(500);
+  padding: rem(64) rem(48);
+  text-align: center;
+  width: 90%;
+
+  .modalIconWrapper {
+    align-items: center;
+    background: var(--tx-card);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    height: rem(80);
+    justify-content: center;
+    margin-bottom: rem(24);
+    width: rem(80);
+  }
+
+  h2 {
+    color: var(--tx-card);
+    font-family: var(--font-main);
+    font-size: rem(32);
+    font-weight: 600;
+    margin: 0 0 rem(16) 0;
+  }
+
+  .modalContentBody {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rem(32);
+    width: 100%;
+
+    .mainMessage {
+      color: var(--tx-card);
+      font-family: var(--font-japanese);
+      font-size: rem(18);
+      font-weight: 500;
+      line-height: 1.6;
+      margin: 0 0 rem(24) 0;
+    }
+
+    .modalTotalBox {
+      align-items: center;
+      background: rgba(var(--tx-card-rgb), 0.03);
+      border-radius: rem(16);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: rem(24);
+      padding: rem(20) rem(24);
+
+      .totalLabel {
+        color: rgba(var(--tx-card-rgb), 0.6);
+        font-family: var(--font-japanese);
+        font-size: rem(14);
+        font-weight: 500;
+      }
+
+      .totalVal {
+        color: var(--tx-card);
+        font-family: var(--font-main);
+        font-size: rem(28);
+        font-weight: 700;
+      }
+    }
+
+    .subMessage {
+      color: rgba(var(--tx-card-rgb), 0.6);
+      font-family: var(--font-japanese);
+      font-size: rem(14);
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  .modalActions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .modalConfirmBtn {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
